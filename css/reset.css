@@ -1,0 +1,5 @@
+.btn--reset.active.focus,.btn--reset.active:focus,.btn--reset.focus,.btn--reset:active.focus,.btn--reset:active:focus,.btn--reset:focus{outline: none;outline-offset: 0}
+.btn--reset:active{box-shadow: inherit;}
+.btn--reset:focus, .btn:hover{color: unset}
+a.reset{color: inherit}
+a.reset:focus,a.reset:hover{color: inherit;text-decoration: none;outline: none}
