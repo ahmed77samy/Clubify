@@ -119,7 +119,7 @@ const Musical = {
     //========== CUSTIMIZE BACKGROUND PAGENATION SWIPPER ==========//
     custimizeBgPaginationSwiper: function(num = 0) {
         function bgChange (slides , bullets) {
-            bullets.forEach((e , i) => {
+            bullets?.forEach((e , i) => {
                 e.style.background = `url("${slides[i].querySelector('img').getAttribute("src")}")`
                 e.style.backgroundSize = "cover"
             })
@@ -206,7 +206,7 @@ window.onload = _ => {
         const ele = document.querySelector(".aside__top h2")
         let scroll = document.documentElement.getBoundingClientRect().y
         let height = document.scrollingElement.scrollHeight - window.innerHeight
-        ele.textContent = `${Math.round(Math.abs(scroll * 100 ) / height)}%`
+        ele.textContent = `${Math.round(Math.abs(scroll * 100 ) && 0 / height)}%`
         Musical.setProgress(Math.round(Math.abs(scroll * 100 ) / height) , circle);
     }
     document.onscroll = asideTop;
@@ -220,16 +220,18 @@ window.onload = _ => {
     }
 
     //========== GALLERY GRID ==========//
-    let waterfall = new Waterfall({ 
-        containerSelector: '#gallery .gallery__wrapper',
-        boxSelector: '#gallery .item',
-        minBoxWidth: 370
-    });
+    if(document.querySelector("#gallery .gallery__wrapper--waterfall")) {
+        let waterfall = new Waterfall({
+            containerSelector: '#gallery .gallery__wrapper--waterfall',
+            boxSelector: '#gallery .item',
+            minBoxWidth: 370
+        });
+    }
 
     //========== TOGGLE SERVICES ITEMS ==========//
     let services_items = document.querySelectorAll('#services .accordion__item')
     for(ele of [...services_items]) {
-        ele.onclick = function () {
+        ele.addEventListener('click', function () {
             if(this.classList.contains('active')) {
                 return false
             }
@@ -243,7 +245,7 @@ window.onload = _ => {
                 Musical.fade(this.querySelector('.accordion__answer'),'in' , 400 , 'block');
                 this.classList.add('active')
             }
-        }
+        })
     }
 
     //========== PLAY AND PAUSE AUDIO MUSIC ==========//
@@ -323,18 +325,18 @@ window.onload = _ => {
     let testi_control_next = document.querySelector('#testimonials .testimonials__control .next')
     let testi_img = document.querySelectorAll('#testimonials .items__img img')
     let testi_content = document.querySelectorAll('#testimonials .items__content')
-    testi_control_next.onclick = function () {
+    testi_control_next?.addEventListener('click',function () {
         Musical.increaseSliceCount(testi_img,"testi",3,400)
         Musical.increaseSliceCount(testi_content,"testi",3,400)
         let data = ([...testi_img].filter(e => e.classList.contains('active'))[0]).getAttribute("data-testi")
         document.querySelector("#testimonials .testimonials__numbers").textContent = data
-    }
-    testi_control_prev.onclick = function () {
+    })
+    testi_control_prev?.addEventListener('click',function () {
         Musical.decreaseSliceCount(testi_img,"testi",3,400)
         Musical.decreaseSliceCount(testi_content,"testi",3,400)
         let data = ([...testi_img].filter(e => e.classList.contains('active'))[0]).getAttribute("data-testi")
         document.querySelector("#testimonials .testimonials__numbers").textContent = data
-    }
+    }) 
 
     //========== SWIPPER FUNCTIONS ==========//
     window.swiper = new Swiper('.swiper-container', {
@@ -357,17 +359,17 @@ window.onload = _ => {
     pagination_after.setAttribute("class","pagination-after")
     pagination_current.setAttribute("class","pagination-before")
     pagination_current.innerHTML = `
-    <span class="current">0${window.swiper.slides.filter(e=> e.classList.contains('swiper-slide-active'))[0].getAttribute("aria-label").slice(0,1)}</span>`
+    <span class="current">0${window.swiper.slides.filter(e=> e.classList.contains('swiper-slide-active'))[0]?.getAttribute("aria-label").slice(0,1)}</span>`
     pagination_after_icon.setAttribute("class","fas fa-chevron-up icon")
     pagination_after.appendChild(pagination_after_icon)
-    document.querySelector(".swiper-pagination").appendChild(pagination_after)
-    document.querySelector(".swiper-pagination").appendChild(pagination_current)
+    document.querySelector(".swiper-pagination")?.appendChild(pagination_after)
+    document.querySelector(".swiper-pagination")?.appendChild(pagination_current)
     Musical.custimizeBgPaginationSwiper(0)
-    pagination_after.onclick = () => {
+    pagination_after.addEventListener("click",() => {
         let swiper_pagination = document.querySelector(".swiper-pagination")
         if(swiper_pagination.classList.contains("active")) swiper_pagination.classList.remove("active")
         else swiper_pagination.classList.add("active")
-    }
+    })
     window.swiper.on('slideChange', function () {
         setTimeout(_=>pagination_current.innerHTML = `
         <span class="current">0${window.swiper.slides.filter(e=> e.classList.contains('swiper-slide-active'))[0].getAttribute("aria-label").slice(0,1)}</span>`)

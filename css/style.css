@@ -865,7 +865,7 @@ aside.aside__fixed .aside__social hr {
 #music .control {
     background: rgba(0, 0, 0, 0.05);
     margin: 0 -70px;
-    padding: var(--between-spacing);
+    padding: 40px 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -879,7 +879,6 @@ aside.aside__fixed .aside__social hr {
     margin-bottom: 0;
 }
 /*========== music ==========*/
-
 
 /*========== events ==========*/
 #events .events__wrapper {
