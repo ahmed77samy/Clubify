@@ -50,29 +50,27 @@ const Musical = {
         circle.style.strokeDashoffset = offset;
     },
     //========== PLAY AUDIO ==========//
-    playAudio: function (ele , callBackPlay = (e) => {return false} , callBackPause = () => {return false}) {
-        for(aud of [...ele]) {
-            aud.onclick = function () {
-                let audios = document.querySelectorAll('audio')
-                if([...audios].some(e => !e.paused) ) {
-                    [...audios].map(e => {
-                        this.querySelector('audio') === e ? false : e.pause()
-                        return false
-                    })
-                }
-                if(this.querySelector('audio').paused) {
-                    this.querySelector('audio').play()
-                    callBackPlay(this)
-                }else {
-                    this.querySelector('audio').pause()
-                    callBackPause(this)
-                }
-            }
-        }
+    playAudio:function (audio , callBack=_=>false) {
+        audio.currentTime = 0
+        audio.play()
+        callBack()
     },
-    //========== SET DURATION AUDIO ==========//
-    setDurationAudio: function (duration , ele) {
-        ele.textContent = `${((parseInt(duration)) / 60).toFixed(2)}`.replace('.' , ":")
+    //========== CONTINUE AUDIO ==========//
+    continueAudio:function (audio , callBack=_=>false) {
+        audio.play()
+        callBack()
+    },
+    //========== PAUSE AUDIO ==========//
+    pauseAudio:function (audio , callBack=_=>false) {
+        audio.pause()
+        callBack()
+    },
+    //========== SET Duration Audio ==========//
+    setDurationAudio:function (ele ,secs) {
+        const minutes = Math.floor(Math.ceil(secs) / 60);
+        const seconds = Math.floor(Math.ceil(secs) % 60);
+        const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+        ele.textContent = `${minutes}:${returnedSeconds}`
     },
     //========== INCREASE SLICE COUNT ==========//
     increaseSliceCount: function (eles , data , count , duration) {
@@ -116,6 +114,41 @@ const Musical = {
             setTimeout(() => {
                 Musical.fade(new_ele,'in',duration || 400)
             }, duration || 400);
+        }
+    },
+    //========== CUSTIMIZE BACKGROUND PAGENATION SWIPPER ==========//
+    custimizeBgPaginationSwiper: function(num = 0) {
+        function bgChange (slides , bullets) {
+            bullets.forEach((e , i) => {
+                e.style.background = `url("${slides[i].querySelector('img').getAttribute("src")}")`
+                e.style.backgroundSize = "cover"
+            })
+        }
+        if(swiper instanceof Array) {
+            let slides = swiper[num].slides;
+            let bullets = swiper[num].pagination.bullets;
+            bgChange(slides , bullets)
+        }else {
+            let slides = swiper.slides;
+            let bullets = swiper.pagination.bullets;
+            bgChange(slides , bullets)
+        }
+    },
+    //========== CHANGE COLOR THEME ==========//
+    changeTheme: function(eles) {
+        [...eles].forEach(e => {
+            let data = e.getAttribute('data-theme');
+            e.onclick = function() {
+                sessionStorage.setItem("theme",data);
+                document.documentElement.style.setProperty('--second-color', data);
+                [...eles].filter(e => e.classList.contains('active'))[0].classList.remove("active");
+                e.classList.add("active");
+            }
+        })
+        if(sessionStorage.getItem("theme")) {
+            document.documentElement.style.setProperty('--second-color', sessionStorage.getItem("theme"));
+            [...eles].filter(e => e.classList.contains('active'))[0].classList.remove("active");
+            [...eles].filter(e => e.getAttribute('data-theme') === sessionStorage.getItem("theme"))[0].classList.add('active')
         }
     }
 }
@@ -188,7 +221,7 @@ window.onload = _ => {
 
     //========== GALLERY GRID ==========//
     let waterfall = new Waterfall({ 
-        containerSelector: '#gallery',
+        containerSelector: '#gallery .gallery__wrapper',
         boxSelector: '#gallery .item',
         minBoxWidth: 370
     });
@@ -214,34 +247,76 @@ window.onload = _ => {
     }
 
     //========== PLAY AND PAUSE AUDIO MUSIC ==========//
-    let audio_music = document.querySelectorAll("[data-audio]")
-    function callBackPlayAudio (e){
-        let lis = e.closest('ul').querySelectorAll('li');
-        [...lis].map(e => {
-            if(e.classList.contains('active')) {
-                e.classList.remove('active')
-                e.querySelector('.icon').classList.remove('fa-pause')
-                e.querySelector('.icon').classList.add('fa-play')
-            }
-            return false
+    let music_audio = document.querySelectorAll("#music [data-audio]")
+    let music_duration = document.querySelectorAll("#music li .duration")
+    let music_control = document.querySelector("#music #music_control")
+    music_audio.forEach(e => {
+        // set duration audios
+        music_duration.forEach(e => {
+            let duration = e.closest("li").querySelector('audio').duration
+            Musical.setDurationAudio(e , duration)
         })
-        e.closest('li').classList.add('active')
-        e.querySelector('.icon').classList.remove('fa-play')
-        e.querySelector('.icon').classList.add('fa-pause')
-        document.querySelector("#music_control .name").textContent = e.querySelector('.name').textContent
-    }
-    function callBackPauseAudio (e){
-        e.closest('li').classList.remove('active')
-        e.querySelector('.icon').classList.remove('fa-pause')
-        e.querySelector('.icon').classList.add('fa-play')
-        document.querySelector("#music_control .name").textContent = "no thing"
-    }
-    [...audio_music].forEach(function(e) {
-        let duration = e.querySelector('audio').duration
-        let ele = e.closest('li').querySelector('.duration')
-        Musical.setDurationAudio(duration , ele)
+        // audios on click
+        e.onclick = function () {
+            // callBackPause
+            function callBackPause() {
+                let icon = e.querySelector('.icon')
+                icon.classList.remove("fa-pause")
+                icon.classList.add("fa-play")
+            }
+            // callBackContinue
+            function callBackContinue () {
+                let icon = e.querySelector('.icon')
+                icon.classList.remove("fa-play")
+                icon.classList.add("fa-pause")
+                let intreval_current_audio_continue = setInterval(() => {
+                    let current = e.querySelector("audio").currentTime;
+                    Musical.setDurationAudio(music_control.querySelector(".current__all") , current)
+                }, 1000);
+                e.querySelector("audio").addEventListener("pause",() => {
+                    clearInterval(intreval_current_audio_continue);
+                    callBackPause()
+                })
+            }
+            // callBackPlay
+            function callBackPlay () {
+                let lis = e.closest("ul").querySelectorAll("li")
+                let icon = e.querySelector('.icon');
+                lis.forEach(li => {
+                    let audio = li.querySelector('audio')
+                    li.classList.remove("active")
+                    if(e.closest('li') !== li) {
+                        audio.pause()
+                    }
+                })
+                parent_audio.classList.add('active')
+                icon.classList.remove("fa-play")
+                icon.classList.add("fa-pause")
+                music_control.querySelector(".name").textContent = e.querySelector(".name").textContent
+                music_control.querySelector(".duration__all").textContent = e.closest("li").querySelector(".duration").textContent
+                clearInterval(window.intreval_current_audio_continue);
+                let intreval_current_audio_play = setInterval(() => {
+                    let current = audio.currentTime;
+                    Musical.setDurationAudio(music_control.querySelector(".current__all") , current)
+                }, 1000);
+                audio.addEventListener("pause",() => {
+                    clearInterval(intreval_current_audio_play);
+                    callBackPause()
+                })
+            }
+            let audio = e.querySelector('audio')
+            let parent_audio = e.closest("li")
+            if(parent_audio.classList.contains('active')){
+                if(!audio.paused) {
+                    Musical.pauseAudio(audio,callBackPause)
+                }else {
+                    Musical.continueAudio(audio,callBackContinue)
+                }
+            }else {
+                Musical.playAudio(audio , callBackPlay)
+            }
+        }
     })
-    Musical.playAudio(audio_music , callBackPlayAudio , callBackPauseAudio)
 
     //========== TESTIMONIALS COTROL ==========//
     let testi_control_prev = document.querySelector('#testimonials .testimonials__control .prev')
@@ -261,53 +336,43 @@ window.onload = _ => {
         document.querySelector("#testimonials .testimonials__numbers").textContent = data
     }
 
-
-
-    // ============
-    // let play = document.querySelectorAll('#gallery .play');
-    // let close = document.querySelectorAll('#gallery .close');
-
-    
-    // [...play].forEach(function (e) {
-    //     const over_lay = e.closest(".item").querySelector(".over__lay")
-    //     const close = e.closest(".item").querySelector(".close")
-    //     const wrapper_contetnt = e.closest(".item").querySelector(".wrapper__contetnt")
-    //     close.style.pointerEvents = "none"
-    //     console.log(e);
-    //     e.onclick = function() {
-    //         if(close.style.pointerEvents === "none") {
-    //             close.style.pointerEvents = "all";
-    //             close.style.opacity = "1";
-    //             over_lay.style.opacity = "1";
-    //             wrapper_contetnt.style.opacity = "0";
-    //             wrapper_contetnt.style.pointerEvents = "none";
-    //             over_lay.style.transform = "translateY(-50%)";
-    //         }
-    //     }
-    // });
-    // [...close].forEach(function (e) {
-    //     const over_lay = e.closest(".item").querySelector(".over__lay")
-    //     const close = e.closest(".item").querySelector(".close")
-    //     const wrapper_contetnt = e.closest(".item").querySelector(".wrapper__contetnt")
-    //     console.log(e)
-    //     e.onclick = function() {
-    //         if(close.style.pointerEvents !== "none") {
-    //             close.style.pointerEvents = "none";
-    //             close.style.opacity = "0";
-    //             over_lay.style.opacity = "0";
-    //             wrapper_contetnt.style.opacity = "0";
-    //             wrapper_contetnt.style.pointerEvents = "all";
-    //             over_lay.style.transform = "none";
-    //         }
-    //     }
-    // });
-
-
-
-
-}    
-
-
-
-
-
+    //========== SWIPPER FUNCTIONS ==========//
+    window.swiper = new Swiper('.swiper-container', {
+        grabCursor: true,
+        parallax:true,
+        speed: 1600,
+        threshold: 10,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+    });
+    let pagination_current = document.createElement('div')
+    let pagination_after = document.createElement('div')
+    let pagination_after_icon = document.createElement('i')
+    pagination_after.setAttribute("class","pagination-after")
+    pagination_current.setAttribute("class","pagination-before")
+    pagination_current.innerHTML = `
+    <span class="current">0${window.swiper.slides.filter(e=> e.classList.contains('swiper-slide-active'))[0].getAttribute("aria-label").slice(0,1)}</span>`
+    pagination_after_icon.setAttribute("class","fas fa-chevron-up icon")
+    pagination_after.appendChild(pagination_after_icon)
+    document.querySelector(".swiper-pagination").appendChild(pagination_after)
+    document.querySelector(".swiper-pagination").appendChild(pagination_current)
+    Musical.custimizeBgPaginationSwiper(0)
+    pagination_after.onclick = () => {
+        let swiper_pagination = document.querySelector(".swiper-pagination")
+        if(swiper_pagination.classList.contains("active")) swiper_pagination.classList.remove("active")
+        else swiper_pagination.classList.add("active")
+    }
+    window.swiper.on('slideChange', function () {
+        setTimeout(_=>pagination_current.innerHTML = `
+        <span class="current">0${window.swiper.slides.filter(e=> e.classList.contains('swiper-slide-active'))[0].getAttribute("aria-label").slice(0,1)}</span>`)
+    });
+    //========== CHANGE COLOR THEME ==========//
+    let sp_theme = document.querySelectorAll('.aside__theme span')
+    Musical.changeTheme(sp_theme)
+}

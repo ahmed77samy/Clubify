@@ -101,11 +101,26 @@
             <hr class="hr__solid">
         </div>
         <div class="aside__theme">
-            0%
+            <span style="--theme: #2cc6ad" data-theme="#2cc6ad" class="active"></span>
+            <span style="--theme: #bd177a" data-theme="#bd177a"></span>
+            <span style="--theme: #ffa020" data-theme="#ffa020"></span>
+            <span style="--theme: #6667be" data-theme="#6667be"></span>
+            <span style="--theme: #66be6f" data-theme="#66be6f"></span>
+            <span style="--theme: #6b6332" data-theme="#6b6332"></span>
+            <span style="--theme: #c62c2c" data-theme="#c62c2c"></span>
+            <span style="--theme: #a17dcc" data-theme="#a17dcc"></span>
         </div>
         <div class="aside__social">
             <hr class="hr__solid">
-            0%
+            <a href="#" class="reset">
+                <i class="fab fa-twitter icon"></i>
+            </a>
+            <a href="#" class="reset">
+                <i class="fab fa-facebook-f icon"></i>
+            </a>
+            <a href="#" class="reset">
+                <i class="fab fa-linkedin-in icon"></i>
+            </a>
         </div>
     </aside>
     <!--========== ASIDE__FIXED ==========-->
@@ -115,29 +130,130 @@
         <div class="content__holder">
             <!--========== CONTENT ==========-->
             <div class="content non--pd">
-                <div class="slider">
-                    <img src="images/bg/1.jpg" alt="slider">
+                <!--========== SWIPPER CONTAINER ==========-->
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <!--========== 1 ==========-->
+                        <div class="swiper-slide">
+                            <img data-swiper-parallax="50%" src="images/bg/1.jpg" alt="slider">
+                            <div data-swiper-parallax="40%" class="slide-content">
+                                <div class="container h-100">
+                                    <div class="holder">
+                                        <div>
+                                            <p class="text-uppercase">sports</p>
+                                            <h2 class="mb-0">
+                                                musical club
+                                            </h2>
+                                        </div>
+                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis soluta, pariatur possimus aut Lorem, ipsum dolor sit amet consectetur  </p>
+                                        <button class="btn--reset btn__one btn--reverse--color">read more</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--========== 2 ==========-->
+                        <div class="swiper-slide">
+                            <img data-swiper-parallax="50%" src="images/bg/1.jpg" alt="slider">
+                            <div data-swiper-parallax="40%" class="slide-content">
+                                <h1>test</h1>
+                            </div>
+                        </div>
+                        <!--========== 3 ==========-->
+                        <div class="swiper-slide">
+                            <img data-swiper-parallax="50%" src="images/bg/2.jpg" alt="slider">
+                            <div data-swiper-parallax="40%" class="slide-content">
+                                <h1>test</h1>
+                            </div>
+                        </div>
+                        <!--========== 4 ==========-->
+                        <div class="swiper-slide">
+                            <img data-swiper-parallax="50%" src="images/bg/1.jpg" alt="slider">
+                            <div data-swiper-parallax="40%" class="slide-content">
+                                <h1>test</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <!--========== PAGINATION ==========-->
+                    <div class="swiper-pagination d-none d-lg-flex"></div>
+                    <!--========== NAVIGATION ==========-->
+                    <div class="swiper-button-prev btn__arrow">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="swiper-button-next btn__arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
                 </div>
             </div>
             <!--========== CONTENT ==========-->
             <div class="content after--non--pd">
                 <section id="about">
-                    <img class="after__bg" src="images/image-box-bg.png" alt="bg">
                     <div class="container">
-                        <h3 class="sec__desc">about us</h3>
                         <div class="row">
-                            <!--========== GRID ==========-->
                             <div class="col-lg-6">
                                 <h2 class="sec__title">
-                                    We are permanently musical members
+                                    join us now
                                 </h2>
-                                <p class="p__desc mr--layout">Maecenas facilisis facilisis consequat. Curabitur fringilla pellentesque neque, imperdiet effic-tur urna gravida vel. Cras augue diam, sollicitudin sit amet felis ut, eleifend faucibus dui. Proin euismod suscipit lacus, et scelerisque nisi aliquam anunc feugiat mattis quam, ut luctus enim ultrices at. Maecenas facilisis facilisis consequat. Curabitur fringilla pellentesque neque, imperdiet efficitur urna gravida vel. Cras augue diam, sollicitudin sit amet felis ut, eleifend faucibus dui. Proin euismod suscipit lacus, et scelerisque nisi aliquam a. Nunc feugiat mattis quam, ut luctus enim ultrices at.</p>
-                                <button class="btn--reset btn__one">join us</button>
+                                <h3 class="sec__desc">about us</h3>
+                                <p class="p__desc mr--layout">Maecenas facilisis facilisis consequat. Curabitur fringilla pellentesque neque, imperdiet effic-tur urna gravida vel. Cras augue diam, sollicitudin sit amet felis ut.</p>
                             </div>
-                            <!--========== GRID ==========-->
-                            <div class="col-lg-6">
-                                <div class="box__img">
-                                    <img src="images/about/1.png" alt="about">
+                            <div class="col-md-6 col-lg-3">
+                                <div class="about__item">
+                                    <div class="item__icon d-flex justify-content-end">
+                                        <i class="fas fa-music icon"></i>
+                                    </div>
+                                    <div class="item__title d-flex justify-content-start">
+                                        <h4 class="text-uppercase">free music</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="about__item">
+                                    <div class="item__icon d-flex justify-content-end">
+                                        <i class="fas fa-utensils icon"></i>
+                                    </div>
+                                    <div class="item__title d-flex justify-content-start">
+                                        <h4 class="text-uppercase">Restaurant, cafe</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="about__item">
+                                    <div class="item__icon d-flex justify-content-end">
+                                        <i class="fas fa-fire icon"></i>
+                                    </div>
+                                    <div class="item__title d-flex justify-content-start">
+                                        <h4 class="text-uppercase">night party</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="about__item">
+                                    <div class="item__icon d-flex justify-content-end">
+                                        <i class="fab fa-playstation icon"></i>
+                                    </div>
+                                    <div class="item__title d-flex justify-content-start">
+                                        <h4 class="text-uppercase">gaming video</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="about__item">
+                                    <div class="item__icon d-flex justify-content-end">
+                                        <i class="fas fa-glass-cheers icon"></i>
+                                    </div>
+                                    <div class="item__title d-flex justify-content-start">
+                                        <h4 class="text-uppercase">bars, party</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="about__item">
+                                    <div class="item__icon d-flex justify-content-end">
+                                        <i class="fas fa-compact-disc icon"></i>
+                                    </div>
+                                    <div class="item__title d-flex justify-content-start">
+                                        <h4 class="text-uppercase">disco, casino</h4>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -147,150 +263,126 @@
             <!--========== CONTENT ==========-->
             <div class="content">
                 <section id="gallery">
-                    <h3 class="sec__desc">gallery</h3>
-                    <h2 class="sec__title text-center non--mr">latest gallery</h2>
-                    <p class="p__desc text-center mr--layout">Maecenas facilisis facilisis consequat.</p>
-                    <!--========== 1 ==========-->
-                    <div class="item active">
-                        <div class="box__img">
-                            <img src="images/gallery/1.jpg" alt="gallery">
-                        </div>
-                        <div class="over__lay"></div>
-                        <a class="reset close">
-                            <i class="far fas fa-times icon"></i>
-                        </a>
-                        <div class="wrapper__contetnt">
-                            <a class="reset play">
-                                <i class="far fa-play-circle icon"></i>
-                            </a> 
-                            <div>
-                                <p>2day ago</p>
-                                <h3><a href="#" class="reset text-uppercase">CONTRAY TO POPULAR BELIEF, LOREM IPSUM IS NOT SIMPLY RANDOM TEXT.</a></h3>
-                                <p>musical club</p>
+                    <div class="gallery__wrapper" style="overflow: hidden;">
+                        <h3 class="sec__desc">gallery</h3>
+                        <h2 class="sec__title text-center non--mr">latest gallery</h2>
+                        <p class="p__desc text-center mr--layout">Maecenas facilisis facilisis consequat.</p>
+                        <!--========== 1 ==========-->
+                        <div class="item">
+                            <div class="box__img">
+                                <img src="images/gallery/1.jpg" alt="gallery">
+                            </div>
+                            <div class="over__lay"></div>
+                            <div class="wrapper__contetnt">
+                                <a class="reset play">
+                                    <i class="far fa-play-circle icon"></i>
+                                </a> 
+                                <div>
+                                    <p>2day ago</p>
+                                    <h3><a href="#" class="reset text-uppercase">CONTRAY TO POPULAR BELIEF, LOREM IPSUM IS NOT SIMPLY RANDOM TEXT.</a></h3>
+                                    <p>musical club</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!--========== 2 ==========-->
-                    <div class="item">
-                        <div class="box__img">
-                            <img src="images/gallery/2.jpg" alt="gallery">
-                        </div>
-                        <div class="over__lay"></div>
-                        <a class="reset close">
-                            <i class="far fas fa-times icon"></i>
-                        </a>
-                        <div class="wrapper__contetnt">
-                            <a class="reset play">
-                                <i class="far fa-play-circle icon"></i>
-                            </a> 
-                            <div>
-                                <p>2day ago</p>
-                                <h3><a href="#" class="reset text-uppercase">CONTRAY TO POPULAR BELIEF, LOREM IPSUM IS NOT SIMPLY RANDOM TEXT.</a></h3>
-                                <p>musical club</p>
+                        <!--========== 2 ==========-->
+                        <div class="item">
+                            <div class="box__img">
+                                <img src="images/gallery/2.jpg" alt="gallery">
+                            </div>
+                            <div class="over__lay"></div>
+                            <div class="wrapper__contetnt">
+                                <a class="reset play">
+                                    <i class="far fa-play-circle icon"></i>
+                                </a> 
+                                <div>
+                                    <p>2day ago</p>
+                                    <h3><a href="#" class="reset text-uppercase">CONTRAY TO POPULAR BELIEF, LOREM IPSUM IS NOT SIMPLY RANDOM TEXT.</a></h3>
+                                    <p>musical club</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!--========== 3 ==========-->
-                    <div class="item active">
-                        <div class="box__img">
-                            <img src="images/gallery/3.jpg" alt="gallery">
-                        </div>
-                        <div class="over__lay"></div>
-                        <a class="reset close">
-                            <i class="far fas fa-times icon"></i>
-                        </a>
-                        <div class="wrapper__contetnt">
-                            <a class="reset play">
-                                <i class="far fa-play-circle icon"></i>
-                            </a> 
-                            <div>
-                                <p>2day ago</p>
-                                <h3><a href="#" class="reset text-uppercase">CONTRAY TO POPULAR BELIEF, LOREM IPSUM IS NOT SIMPLY RANDOM TEXT.</a></h3>
-                                <p>musical club</p>
+                        <!--========== 3 ==========-->
+                        <div class="item active">
+                            <div class="box__img">
+                                <img src="images/gallery/3.jpg" alt="gallery">
+                            </div>
+                            <div class="over__lay"></div>
+                            <div class="wrapper__contetnt">
+                                <a class="reset play">
+                                    <i class="far fa-play-circle icon"></i>
+                                </a> 
+                                <div>
+                                    <p>2day ago</p>
+                                    <h3><a href="#" class="reset text-uppercase">CONTRAY TO POPULAR BELIEF, LOREM IPSUM IS NOT SIMPLY RANDOM TEXT.</a></h3>
+                                    <p>musical club</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!--========== 4 ==========-->
-                    <div class="item">
-                        <div class="box__img">
-                            <img src="images/gallery/4.jpg" alt="gallery">
-                        </div>
-                        <div class="over__lay"></div>
-                        <a class="reset close">
-                            <i class="far fas fa-times icon"></i>
-                        </a>
-                        <div class="wrapper__contetnt">
-                            <a class="reset play">
-                                <i class="far fa-play-circle icon"></i>
-                            </a> 
-                            <div>
-                                <p>2day ago</p>
-                                <h3><a href="#" class="reset text-uppercase">CONTRAY TO POPULAR BELIEF, LOREM IPSUM IS NOT SIMPLY RANDOM TEXT.</a></h3>
-                                <p>musical club</p>
+                        <!--========== 4 ==========-->
+                        <div class="item">
+                            <div class="box__img">
+                                <img src="images/gallery/4.jpg" alt="gallery">
+                            </div>
+                            <div class="over__lay"></div>
+                            <div class="wrapper__contetnt">
+                                <a class="reset play">
+                                    <i class="far fa-play-circle icon"></i>
+                                </a> 
+                                <div>
+                                    <p>2day ago</p>
+                                    <h3><a href="#" class="reset text-uppercase">CONTRAY TO POPULAR BELIEF, LOREM IPSUM IS NOT SIMPLY RANDOM TEXT.</a></h3>
+                                    <p>musical club</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!--========== 5 ==========-->
-                    <div class="item">
-                        <div class="box__img">
-                            <img src="images/gallery/5.jpg" alt="gallery">
-                        </div>
-                        <div class="over__lay"></div>
-                        <a class="reset close">
-                            <i class="far fas fa-times icon"></i>
-                        </a>
-                        <div class="wrapper__contetnt">
-                            <a class="reset play">
-                                <i class="far fa-play-circle icon"></i>
-                            </a> 
-                            <div>
-                                <p>2day ago</p>
-                                <h3><a href="#" class="reset text-uppercase">CONTRAY TO POPULAR BELIEF, LOREM IPSUM IS NOT SIMPLY RANDOM TEXT.</a></h3>
-                                <p>musical club</p>
+                        <!--========== 5 ==========-->
+                        <div class="item active">
+                            <div class="box__img">
+                                <img src="images/gallery/5.jpg" alt="gallery">
+                            </div>
+                            <div class="over__lay"></div>
+                            <div class="wrapper__contetnt">
+                                <a class="reset play">
+                                    <i class="far fa-play-circle icon"></i>
+                                </a> 
+                                <div>
+                                    <p>2day ago</p>
+                                    <h3><a href="#" class="reset text-uppercase">CONTRAY TO POPULAR BELIEF, LOREM IPSUM IS NOT SIMPLY RANDOM TEXT.</a></h3>
+                                    <p>musical club</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!--========== 6 ==========-->
-                    <div class="item">
-                        <div class="box__img">
-                            <img src="images/gallery/6.jpg" alt="gallery">
-                        </div>
-                        <div class="over__lay"></div>
-                        <a class="reset close">
-                            <i class="far fas fa-times icon"></i>
-                        </a>
-                        <div class="wrapper__contetnt">
-                            <a class="reset play">
-                                <i class="far fa-play-circle icon"></i>
-                            </a> 
-                            <div>
-                                <p>2day ago</p>
-                                <h3><a href="#" class="reset text-uppercase">CONTRAY TO POPULAR BELIEF, LOREM IPSUM IS NOT SIMPLY RANDOM TEXT.</a></h3>
-                                <p>musical club</p>
+                        <!--========== 6 ==========-->
+                        <div class="item">
+                            <div class="box__img">
+                                <img src="images/gallery/6.jpg" alt="gallery">
+                            </div>
+                            <div class="over__lay"></div>
+                            <div class="wrapper__contetnt">
+                                <a class="reset play">
+                                    <i class="far fa-play-circle icon"></i>
+                                </a> 
+                                <div>
+                                    <p>2day ago</p>
+                                    <h3><a href="#" class="reset text-uppercase">CONTRAY TO POPULAR BELIEF, LOREM IPSUM IS NOT SIMPLY RANDOM TEXT.</a></h3>
+                                    <p>musical club</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
             </div>
             <!--========== CONTENT ==========-->
-            <div class="content before--non--pd">
+            <div class="content before--non--pd before--non--pd--responsive">
                 <section id="services">
-                    <img class="after__bg left--bg" src="images/image-box-bg.png" alt="bg">
                     <div class="container">
-                        <h3 class="sec__desc">services</h3>
                         <div class="row">
-                            <!--========== GRID ==========-->
-                            <div class="col-lg-6 order-3 order-lg-1">
-                                <div class="box__img__multiple">
-                                    <img src="images/services/1.jpg" alt="services">
-                                    <img src="images/services/2.jpg" alt="services">
-                                </div>
-                            </div>
                             <!--========== GRID ==========-->
                             <div class="col-lg-6 order-2">
                                 <h2 class="sec__title">
                                     We help you find the right place
                                 </h2>
+                                <h3 class="sec__desc">services</h3>
                                 <p class="p__desc mr--layout">Maecenas facilisis facilisis consequat. Curabitur fringilla pellentesque neque, imperdiet effic-tur urna gravida vel. Cras augue diam, sollicitudin sit amet felis ut, eleifend faucibus dui.</p>
 
                                 <div class="accordion__wrapper">
@@ -328,15 +420,22 @@
                                     </div>
                                 </div>
                             </div>
+                            <!--========== GRID ==========-->
+                            <div class="col-lg-6 order-3">
+                                <div class="box__img__multiple">
+                                    <img src="images/services/1.jpg" alt="services">
+                                    <img src="images/services/2.jpg" alt="services">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
             </div>
             <!--========== CONTENT ==========-->
-            <div class="content non--pd responsive" data-bg style="--background: url('../images/bg/1.jpg');--responsive: var(--one-color);">
+            <div class="content non--pd responsive" data-bg style="--background: url('../images/bg/1.jpg');--responsive: var(--one-color)">
                 <div class="over__lay"></div>
                 <section id="music">
-                    <div class="container">
+                    <div class="container" style="overflow: hidden;">
                         <div class="half__right">
                             <h3 class="sec__desc">music</h3>
                             <h2 class="sec__title">
@@ -439,10 +538,10 @@
                             <div class="control" id="music_control">
                                 <div class="title">
                                     <p class="text-uppercase">playing now</p>
-                                    <h6 class="text-uppercase name">no thing</h6>
+                                    <h6 class="text-uppercase name">Drop that beat</h6>
                                 </div>
                                 <div class="duration">
-                                    00:00 / 00:00
+                                    <span class="current__all">0:00</span> / <span class="duration__all">7:52</span>
                                 </div>
                             </div>
                         </div>
@@ -561,9 +660,8 @@
                 </section>
             </div>
             <!--========== CONTENT ==========-->
-            <div class="content">
+            <div class="content before--non--pd">
                 <section id="testimonials">
-                    <img class="after__bg left--bg" src="images/image-box-bg.png" alt="bg">
                     <div class="container">
                         <h2 class="sec__title text-center non--mr">our testimonials</h2>
                         <p class="p__desc text-center mr--layout">Maecenas facilisis facilisis consequat.</p>
@@ -618,127 +716,157 @@
                 </section>
             </div>
             <!--========== CONTENT ==========-->
-            <div class="content non--pd responsive" data-bg style="--background: url('../images/bg/1.jpg');--responsive: var(--one-color);">
+            <div class="content" data-bg style="--background: url('../images/bg/2.png')">
                 <div class="over__lay"></div>
-                <section id="music">
+                <section id="ticket">
                     <div class="container">
-                        <div class="half__right">
-                            <h3 class="sec__desc">music</h3>
-                            <h2 class="sec__title">
-                                enjoy now
-                            </h2>
-                            <p class="p__desc mr--layout">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, provident culpa sequi ipsam sit excepturi ipsum sint esse cumque ea explicabo dolorum rem delectus voluptatem magnam voluptatibus, tempore perspiciatis quis.</p>
-                            <ul class="list-unstyled">
-                                <!--========== 1 ==========-->
-                                <li class="active">
-                                    <div class="title" data-audio>
-                                        <i class="fas fa-play icon"></i> <h6 class="mb-0 name">Drop that beat</h6>
-                                        <audio preload="metadata" controls style="height: 0; width: 0; visibility: hidden; pointer-events: none;">
-                                            <source src="audio/audio.mp3" type="audio/mp3">
-                                        </audio>
+                        <h3 class="sec__desc">ticket</h3>
+                        <h2 class="sec__title">GET YOUR TIKETS</h2>
+                        <div class="row align-items-start">
+                            <div class="col-lg-8">
+                                <p class="p__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, similique cupiditate? Magni dolores vel exercitationem harum vero fugiat cupiditate neque dolorem perspiciatis cumque iste voluptate ipsum, quia reprehenderit iusto nostrum?</p>
+                            </div>
+                            <div class="col-lg-3 d-flex justify-content-lg-end">
+                                <button class="btn--reset btn__one btn--reverse--color">join us</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!--========== CONTENT ==========-->
+            <div class="content after--non--pd">
+                <section id="news">
+                    <div class="container">
+                        <h3 class="sec__desc">news</h3>
+                        <h2 class="sec__title non--mr">latest news</h2>
+                        <p class="p__desc mr--layout">Maecenas facilisis facilisis consequat.</p>
+                        <div class="news__wrapper">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="news__item">
+                                        <div class="box__img">
+                                            <img src="images/news/1.jpg" alt="news">
+                                        </div>
+                                        <div class="item__content">
+                                            <h6 class="mb-2">CONTRAY TO POPULAR BELIEF, LOREM IPSUM IS NOT SIMPLY RANDOM TEXT.</h6>
+                                            <p class="mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                            <a href="#" class="reset">read more</a>
+                                        </div>
                                     </div>
-                                    <div class="duration">00:00</div>
-                                </li>
-                                <!--========== 2 ==========-->
-                                <li>
-                                    <div class="title" data-audio>
-                                        <i class="fas fa-play icon"></i> <h6 class="mb-0 name">Hey, Mister Dj</h6>
-                                        <audio preload="metadata" controls style="height: 0; width: 0; visibility: hidden; pointer-events: none;">
-                                            <source src="audio/audio2.mp3" type="audio/mp3">
-                                        </audio>
-                                    </div>
-                                    <div class="duration">00:00</div>
-                                </li>
-                                <!--========== 3 ==========-->
-                                <li>
-                                    <div class="title" data-audio>
-                                        <i class="fas fa-play icon"></i> <h6 class="mb-0 name">Message to my future self</h6>
-                                        <audio preload="metadata" controls style="height: 0; width: 0; visibility: hidden; pointer-events: none;">
-                                            <source src="audio/audio3.mp3" type="audio/mp3">
-                                        </audio>
-                                    </div>
-                                    <div class="duration">00:00</div>
-                                </li>
-                                <!--========== 4 ==========-->
-                                <li>
-                                    <div class="title" data-audio>
-                                        <i class="fas fa-play icon"></i> <h6 class="mb-0 name">Drop that beat</h6>
-                                        <audio preload="metadata" controls style="height: 0; width: 0; visibility: hidden; pointer-events: none;">
-                                            <source src="audio/audio.mp3" type="audio/mp3">
-                                        </audio>
-                                    </div>
-                                    <div class="duration">00:00</div>
-                                </li>
-                                <!--========== 5 ==========-->
-                                <li>
-                                    <div class="title" data-audio>
-                                        <i class="fas fa-play icon"></i> <h6 class="mb-0 name">Hey, Mister Dj</h6>
-                                        <audio preload="metadata" controls style="height: 0; width: 0; visibility: hidden; pointer-events: none;">
-                                            <source src="audio/audio2.mp3" type="audio/mp3">
-                                        </audio>
-                                    </div>
-                                    <div class="duration">00:00</div>
-                                </li>
-                                <!--========== 6 ==========-->
-                                <li>
-                                    <div class="title" data-audio>
-                                        <i class="fas fa-play icon"></i> <h6 class="mb-0 name">Message to my future self</h6>
-                                        <audio preload="metadata" controls style="height: 0; width: 0; visibility: hidden; pointer-events: none;">
-                                            <source src="audio/audio3.mp3" type="audio/mp3">
-                                        </audio>
-                                    </div>
-                                    <div class="duration">00:00</div>
-                                </li>
-                                <!--========== 7 ==========-->
-                                <li>
-                                    <div class="title" data-audio>
-                                        <i class="fas fa-play icon"></i> <h6 class="mb-0 name">Drop that beat</h6>
-                                        <audio preload="metadata" controls style="height: 0; width: 0; visibility: hidden; pointer-events: none;">
-                                            <source src="audio/audio.mp3" type="audio/mp3">
-                                        </audio>
-                                    </div>
-                                    <div class="duration">00:00</div>
-                                </li>
-                                <!--========== 8 ==========-->
-                                <li>
-                                    <div class="title" data-audio>
-                                        <i class="fas fa-play icon"></i> <h6 class="mb-0 name">Hey, Mister Dj</h6>
-                                        <audio preload="metadata" controls style="height: 0; width: 0; visibility: hidden; pointer-events: none;">
-                                            <source src="audio/audio2.mp3" type="audio/mp3">
-                                        </audio>
-                                    </div>
-                                    <div class="duration">00:00</div>
-                                </li>
-                                <!--========== 9 ==========-->
-                                <li>
-                                    <div class="title" data-audio>
-                                        <i class="fas fa-play icon"></i> <h6 class="mb-0 name">Message to my future self</h6>
-                                        <audio preload="metadata" controls style="height: 0; width: 0; visibility: hidden; pointer-events: none;">
-                                            <source src="audio/audio3.mp3" type="audio/mp3">
-                                        </audio>
-                                    </div>
-                                    <div class="duration">00:00</div>
-                                </li>
-                            </ul>
-                            <!--========== control ==========-->
-                            <div class="control" id="music_control">
-                                <div class="title">
-                                    <p class="text-uppercase">playing now</p>
-                                    <h6 class="text-uppercase name">no thing</h6>
                                 </div>
-                                <div class="duration">
-                                    00:00 / 00:00
+                                <div class="col-lg-4">
+                                    <div class="news__item active">
+                                        <div class="box__img">
+                                            <img src="images/news/1.jpg" alt="news">
+                                        </div>
+                                        <div class="item__content">
+                                            <h6 class="mb-2">CONTRAY TO POPULAR BELIEF, LOREM IPSUM IS NOT SIMPLY RANDOM TEXT.</h6>
+                                            <p class="mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                            <a href="#" class="reset">read more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="news__item">
+                                        <div class="box__img">
+                                            <img src="images/news/1.jpg" alt="news">
+                                        </div>
+                                        <div class="item__content">
+                                            <h6 class="mb-2">CONTRAY TO POPULAR BELIEF, LOREM IPSUM IS NOT SIMPLY RANDOM TEXT.</h5>
+                                            <p class="mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                            <a href="#" class="reset">read more</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
             </div>
+            <!--========== CONTENT ==========-->
+            <div class="content before--non--pd">
+                <section id="subscrib" style="overflow: visible;">
+                    <div class="container">
+                        <div class="row align-items-start">
+                            <div class="col-lg-4">
+                                <h2 class="sec__title non--mr">SUBSCRIBE US</h2>
+                                <p class="p__desc">don’t miss out our latest updates.</p>
+                            </div>
+                            <div class="col-lg-8">
+                                <form action="">
+                                    <input class="input__one" type="email" placeholder="Enter your E-mail">
+                                    <button class="btn__one">subscrib now</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!--========== CONTENT ==========-->
+            <div class="content non--pd" data-bg style="--background: url('../images/bg/3.png');">
+                <div class="over__lay"></div>
+                <section id="purchase" style="overflow: hidden;">
+                    <div class="full__right"></div>
+                    <div class="dimantion">
+                        <h3 class="sec__desc">purchase</h3>
+                        <h2 class="sec__title">
+                            purchase now
+                        </h2>
+                        <p class="p__desc mr--layout">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, provident culpa sequi ipsam sit excepturi ipsum sint esse cumque ea explicab dolorum rem delectus voluptatem magnam voluptatibus, tempore perspiciatis quis.</p>
+                        <button class="btn--reset btn__one btn--reverse--color">hire me now</button>
+                    </div>
+                </section>
+            </div>
         </div>
     </div>
     <!--========== WRAPPER ==========-->
-
-
+    <!--========== FOOTER ==========-->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="logo__wrapper">
+                        <a href="index.html">
+                            <img src="images/logo.png" alt="logo">
+                        </a>
+                    </div>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam, eos corrupti in aspernatur ex porro aperiam quibusdam.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="links__wrapper">
+                        <h6 class="text-uppercase">links</h6>
+                        <div class="ul__wrapper">
+                            <ul class="list-unstyled">
+                                <li><a href="" class="reset">home</a></li>
+                                <li><a href="" class="reset">about</a></li>
+                                <li><a href="" class="reset">contact</a></li>
+                                <li><a href="" class="reset">gallery</a></li>
+                                <li><a href="" class="reset">events</a></li>
+                                <li><a href="" class="reset">music</a></li>
+                            </ul>
+                            <ul class="list-unstyled">
+                                <li><a href="" class="reset">home-slider</a></li>
+                                <li><a href="" class="reset">home-video</a></li>
+                                <li><a href="" class="reset">home-slideshow</a></li>
+                                <li><a href="" class="reset">gallery-2col</a></li>
+                                <li><a href="" class="reset">gallery-3col</a></li>
+                                <li><a href="" class="reset">gallery-fullscreen</a></li>
+                            </ul>
+                            <ul class="list-unstyled">
+                                <li><a href="" class="reset">music-loop</a></li>
+                                <li><a href="" class="reset">music-around</a></li>
+                                <li><a href="" class="reset">events-list</a></li>
+                                <li><a href="" class="reset">events-commingsoon</a></li>
+                                <li><a href="" class="reset">events-grid</a></li>
+                                <li><a href="" class="reset">events-listed</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--========== FOOTER ==========-->
     <script src="js/plugins.js"></script>
     <script src="js/scripts.js"></script>
 </body>

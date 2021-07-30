@@ -16,7 +16,29 @@
     }
     .content__holder .content[Data-bg].responsive{
         background: var(--responsive);
-        position: static;
+    }
+    .content__holder .content[Data-bg].responsive .over__lay{
+        background: transparent;
+    }
+    .content__holder .content.before--non--pd--responsive {
+        padding-bottom: var(--main-spacing);
+    }
+    .content__holder .content.after--non--pd--responsive {
+        padding-top: var(--main-spacing);
+    }
+    .content__holder .content .full__right {
+        width: 100%;
+        transform: none;
+    }
+    .content__holder .content .dimantion {
+        width: 100%;
+        padding: 0 15px;
+    }
+    section .box__img__multiple img:first-of-type {
+        margin-top: 0;
+    }
+    section .box__img__multiple img:last-of-type {
+        margin-bottom: 0;
     }
     header {
         padding-left: 20px;
@@ -30,6 +52,15 @@
     }
     header .content__menu > ul > li {
     transform: translateX(0);
+    }
+    .swiper-container .swiper-button-next {
+        left: calc(50% + 75px);
+        transform: translateX(-100%);
+    }
+    .swiper-container .swiper-button-prev {
+        bottom: 35px;
+        left: 50%;
+        transform: translateX(-100%);
     }
     #music .control {
         flex-direction: column;
@@ -58,6 +89,13 @@
         position: static;
         justify-content: flex-start;
     }
+    #subscrib form {
+        flex-direction: column;
+        row-gap: var(--between-spacing);
+    }
+    #subscrib button {
+        width: max-content;
+    }
 }
 /*========== small screen ==========*/
 @media (min-width:768px) and (max-width:991px) {
@@ -75,7 +113,29 @@
     }
     .content__holder .content[Data-bg].responsive{
         background: var(--responsive);
-        position: static;
+    }
+    .content__holder .content[Data-bg].responsive .over__lay{
+        background: transparent;
+    }
+    .content__holder .content.before--non--pd--responsive {
+        padding-bottom: var(--main-spacing);
+    }
+    .content__holder .content.after--non--pd--responsive {
+        padding-top: var(--main-spacing);
+    }
+    .content__holder .content .full__right {
+        width: 100%;
+        transform: none;
+    }
+    .content__holder .content .dimantion {
+        width: 100%;
+        padding: 0 15px;
+    }
+    section .box__img__multiple img:first-of-type {
+        margin-top: 0;
+    }
+    section .box__img__multiple img:last-of-type {
+        margin-bottom: 0;
     }
     header {
         padding-left: 20px;
@@ -89,6 +149,15 @@
     }
     header .content__menu > ul > li {
     transform: translateX(0);
+    }
+    .swiper-container .swiper-button-next {
+        left: calc(50% + 75px);
+        transform: translateX(-100%);
+    }
+    .swiper-container .swiper-button-prev {
+        bottom: 35px;
+        left: 50%;
+        transform: translateX(-100%);
     }
     #music .control {
         margin: 0;
@@ -117,7 +186,12 @@
 }
 /*========== medium screen ==========*/
 @media (min-width:992px) and (max-width:1199px) {
-
+    .content__holder .content .half__right {
+        padding: var(--main-spacing) 40px;
+    }
+    #music .control {
+        margin: 0 -40px;
+    }
 }
 /*========== large screen ==========*/
 @media (min-width:1200px) {
