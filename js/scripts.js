@@ -67,8 +67,8 @@ const Musical = {
     },
     //========== SET Duration Audio ==========//
     setDurationAudio:function (ele ,secs) {
-        const minutes = Math.floor(Math.ceil(secs) / 60);
-        const seconds = Math.floor(Math.ceil(secs) % 60);
+        const minutes = Math.floor(secs / 60);
+        const seconds = Math.floor(secs % 60);
         const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
         ele.textContent = `${minutes}:${returnedSeconds}`
     },
@@ -206,7 +206,7 @@ window.onload = _ => {
         const ele = document.querySelector(".aside__top h2")
         let scroll = document.documentElement.getBoundingClientRect().y
         let height = document.scrollingElement.scrollHeight - window.innerHeight
-        ele.textContent = `${Math.round(Math.abs(scroll * 100 ) && 0 / height)}%`
+        ele.textContent = `${scroll ? Math.round(Math.abs(scroll * 100) / height) : 0}%`
         Musical.setProgress(Math.round(Math.abs(scroll * 100 ) / height) , circle);
     }
     document.onscroll = asideTop;
@@ -220,22 +220,51 @@ window.onload = _ => {
     }
 
     //========== GALLERY GRID ==========//
-    if(document.querySelector("#gallery .gallery__wrapper--waterfall")) {
+    if(document.querySelector(".sec__gallery .gallery__wrapper--waterfall")) {
         let waterfall = new Waterfall({
-            containerSelector: '#gallery .gallery__wrapper--waterfall',
-            boxSelector: '#gallery .item',
+            containerSelector: '.sec__gallery .gallery__wrapper--waterfall',
+            boxSelector: '.sec__gallery .item',
             minBoxWidth: 370
         });
     }
 
-    //========== TOGGLE SERVICES ITEMS ==========//
-    let services_items = document.querySelectorAll('#services .accordion__item')
-    for(ele of [...services_items]) {
+    //========== GALLERY SWIPPER ==========//
+    window.swiper_gallery = new Swiper('.sec__gallery.swipper .gallery.swiper-container', {
+        slidesPerView: 1,
+        grabCursor: true,
+        parallax:true,
+        speed: 900,
+        threshold: 6,
+        autoHeight: true,
+        loop:true,
+        centeredSlides: true,
+        navigation: {
+          nextEl: '.gallery .swiper-button-next',
+          prevEl: '.gallery .swiper-button-prev',
+        },
+        breakpoints: {
+            600: {
+              slidesPerView: 2,
+              spaceBetween: 20
+            },
+            992: {
+              slidesPerView: 3,
+              spaceBetween: 30
+            },
+            1200: {
+              slidesPerView: 4,
+            }
+        }
+    });
+
+    //========== TOGGLE ABOUT ITEMS ==========//
+    let about_items = document.querySelectorAll('.sec__about.toggle .accordion__item')
+    for(ele of [...about_items]) {
         ele.addEventListener('click', function () {
             if(this.classList.contains('active')) {
                 return false
             }
-            let old = document.querySelector('#services .accordion__item.active')
+            let old = document.querySelector('.sec__about.toggle .accordion__item.active')
             old.querySelector('.accordion__answer').style.display = "none"
             old.classList.remove('active')
             if(this.classList.contains('active')) {
@@ -249,12 +278,12 @@ window.onload = _ => {
     }
 
     //========== PLAY AND PAUSE AUDIO MUSIC ==========//
-    let music_audio = document.querySelectorAll("#music [data-audio]")
-    let music_duration = document.querySelectorAll("#music li .duration")
-    let music_control = document.querySelector("#music #music_control")
+    let music_audio = document.querySelectorAll(".sec__music [data-audio]")
+    let music_duration_list = document.querySelectorAll(".sec__music.list li .duration")
+    let music_control = document.querySelector(".sec__music #music_control")
     music_audio.forEach(e => {
         // set duration audios
-        music_duration.forEach(e => {
+        music_duration_list.forEach(e => {
             let duration = e.closest("li").querySelector('audio').duration
             Musical.setDurationAudio(e , duration)
         })
@@ -271,13 +300,12 @@ window.onload = _ => {
                 let icon = e.querySelector('.icon')
                 icon.classList.remove("fa-play")
                 icon.classList.add("fa-pause")
-                let intreval_current_audio_continue = setInterval(() => {
+                e.querySelector("audio").addEventListener("pause",() => {
+                    callBackPause()
+                })
+                e.querySelector("audio").addEventListener("timeupdate",() => {
                     let current = e.querySelector("audio").currentTime;
                     Musical.setDurationAudio(music_control.querySelector(".current__all") , current)
-                }, 1000);
-                e.querySelector("audio").addEventListener("pause",() => {
-                    clearInterval(intreval_current_audio_continue);
-                    callBackPause()
                 })
             }
             // callBackPlay
@@ -295,15 +323,13 @@ window.onload = _ => {
                 icon.classList.remove("fa-play")
                 icon.classList.add("fa-pause")
                 music_control.querySelector(".name").textContent = e.querySelector(".name").textContent
-                music_control.querySelector(".duration__all").textContent = e.closest("li").querySelector(".duration").textContent
-                clearInterval(window.intreval_current_audio_continue);
-                let intreval_current_audio_play = setInterval(() => {
-                    let current = audio.currentTime;
-                    Musical.setDurationAudio(music_control.querySelector(".current__all") , current)
-                }, 1000);
+                Musical.setDurationAudio(music_control.querySelector(".duration__all") , e.querySelector('audio').duration)
                 audio.addEventListener("pause",() => {
-                    clearInterval(intreval_current_audio_play);
                     callBackPause()
+                })
+                e.querySelector("audio").addEventListener("timeupdate",() => {
+                    let current = e.querySelector("audio").currentTime;
+                    Musical.setDurationAudio(music_control.querySelector(".current__all") , current)
                 })
             }
             let audio = e.querySelector('audio')
@@ -321,25 +347,25 @@ window.onload = _ => {
     })
 
     //========== TESTIMONIALS COTROL ==========//
-    let testi_control_prev = document.querySelector('#testimonials .testimonials__control .prev')
-    let testi_control_next = document.querySelector('#testimonials .testimonials__control .next')
-    let testi_img = document.querySelectorAll('#testimonials .items__img img')
-    let testi_content = document.querySelectorAll('#testimonials .items__content')
+    let testi_control_prev = document.querySelector('.sec__testimonials .testimonials__control .prev')
+    let testi_control_next = document.querySelector('.sec__testimonials .testimonials__control .next')
+    let testi_img = document.querySelectorAll('.sec__testimonials .items__img img')
+    let testi_content = document.querySelectorAll('.sec__testimonials .items__content')
     testi_control_next?.addEventListener('click',function () {
         Musical.increaseSliceCount(testi_img,"testi",3,400)
         Musical.increaseSliceCount(testi_content,"testi",3,400)
         let data = ([...testi_img].filter(e => e.classList.contains('active'))[0]).getAttribute("data-testi")
-        document.querySelector("#testimonials .testimonials__numbers").textContent = data
+        document.querySelector(".sec__testimonials .testimonials__numbers").textContent = data
     })
     testi_control_prev?.addEventListener('click',function () {
         Musical.decreaseSliceCount(testi_img,"testi",3,400)
         Musical.decreaseSliceCount(testi_content,"testi",3,400)
         let data = ([...testi_img].filter(e => e.classList.contains('active'))[0]).getAttribute("data-testi")
-        document.querySelector("#testimonials .testimonials__numbers").textContent = data
+        document.querySelector(".sec__testimonials .testimonials__numbers").textContent = data
     }) 
 
-    //========== SWIPPER FUNCTIONS ==========//
-    window.swiper = new Swiper('.swiper-container', {
+    //========== SLIDERS SWIPPER FUNCTIONS ==========//
+    window.swiper = new Swiper('.slider.swiper-container', {
         grabCursor: true,
         parallax:true,
         speed: 1600,
@@ -349,8 +375,8 @@ window.onload = _ => {
           clickable: true
         },
         navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
+          nextEl: '.slider .swiper-button-next',
+          prevEl: '.slider .swiper-button-prev',
         },
     });
     let pagination_current = document.createElement('div')
@@ -362,17 +388,17 @@ window.onload = _ => {
     <span class="current">0${window.swiper.slides.filter(e=> e.classList.contains('swiper-slide-active'))[0]?.getAttribute("aria-label").slice(0,1)}</span>`
     pagination_after_icon.setAttribute("class","fas fa-chevron-up icon")
     pagination_after.appendChild(pagination_after_icon)
-    document.querySelector(".swiper-pagination")?.appendChild(pagination_after)
-    document.querySelector(".swiper-pagination")?.appendChild(pagination_current)
+    document.querySelector(".slider .swiper-pagination")?.appendChild(pagination_after)
+    document.querySelector(".slider .swiper-pagination")?.appendChild(pagination_current)
     Musical.custimizeBgPaginationSwiper(0)
     pagination_after.addEventListener("click",() => {
-        let swiper_pagination = document.querySelector(".swiper-pagination")
+        let swiper_pagination = document.querySelector(".slider .swiper-pagination")
         if(swiper_pagination.classList.contains("active")) swiper_pagination.classList.remove("active")
         else swiper_pagination.classList.add("active")
     })
     window.swiper.on('slideChange', function () {
         setTimeout(_=>pagination_current.innerHTML = `
-        <span class="current">0${window.swiper.slides.filter(e=> e.classList.contains('swiper-slide-active'))[0].getAttribute("aria-label").slice(0,1)}</span>`)
+        <span class="current">0${window.swiper.slides.filter(e=> e.classList.contains('.slider swiper-slide-active'))[0].getAttribute("aria-label").slice(0,1)}</span>`)
     });
     //========== CHANGE COLOR THEME ==========//
     let sp_theme = document.querySelectorAll('.aside__theme span')
