@@ -1,0 +1,960 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/plugins.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!--========== HEADER ==========-->
+    <header>
+        <!--========== HEADER__NAV ==========-->
+        <nav class="header__nav">
+            <!--========== NAV--RIGHT ==========-->
+            <div class="nav--right">
+                <ul class="list-unstyled mb-0 h-100 d-none d-lg-flex">
+                    <li>
+                        <a href="index.html" class="reset">home</a>
+                        <ul class="list-unstyled mb-0 drop__down">
+                            <li><a href="index.html" class="reset">home 01</a></li>
+                            <li><a href="index2.html" class="reset">home 02</a></li>
+                            <li><a href="index3.html" class="reset">home 03</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="reset">about</a></li>
+                    <li><a href="#" class="reset">gallery</a></li>
+                </ul>
+            </div>
+            <!--========== NAV__LOGO ==========-->
+            <div class="nav__logo">
+                <a href="index.html" class="reset"><img src="images/logo.png" alt="logo"></a>
+            </div>
+            <!--========== NAV--LEFT ==========-->
+            <div class="nav--left">
+                <ul class="list-unstyled mb-0 h-100 d-none d-lg-flex">
+                    <li>
+                        <a href="#" class="reset">events</a>
+                        <ul class="list-unstyled mb-0 drop__down">
+                            <li><a href="#" class="reset">events</a></li>
+                            <li><a href="#" class="reset">events</a></li>
+                            <li><a href="#" class="reset">events</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="reset">music</a></li>
+                    <li><a href="#" class="reset">contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!--========== HEADER__SEARCH ==========-->
+        <div class="header__search d-none d-sm-flex">
+            <i class="icon fas fa-search"></i>
+        </div>
+        <div class="content__search">
+            <form action="#">
+                <input type="text" id="search" placeholder="SEARCH HERE">
+                <button><i class="icon fas fa-search"></i></button>
+            </form>
+        </div>
+        <!--========== HEADER__MENU ==========-->
+        <div class="header__menu">
+            <i class="icon fas fa-bars"></i>
+        </div>
+        <div class="content__menu">
+            <ul class="list-unstyled mb-0">
+                <li class="drop">
+                    <a class="reset">home</a>&nbsp;&nbsp;&nbsp;<i class="icon fas fa-angle-right"></i>
+                    <ul class="list-unstyled mb-0 drop__down is-hidden">
+                        <li><a href="index.html" class="reset">home 01</a></li>
+                        <li><a href="index2.html" class="reset">home 02</a></li>
+                        <li><a href="index3.html" class="reset">home 03</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="reset">about</a></li>
+                <li><a href="#" class="reset">gallery</a></li>
+                <li class="drop">
+                    <a class="reset">events</a>&nbsp;&nbsp;&nbsp;<i class="icon fas fa-angle-right"></i>
+                    <ul class="list-unstyled mb-0 drop__down is-hidden">
+                        <li><a href="#" class="reset">events</a></li>
+                        <li><a href="#" class="reset">events</a></li>
+                        <li><a href="#" class="reset">events</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="reset">music</a></li>
+                <li><a href="#" class="reset">contact</a></li>
+            </ul>
+        </div>
+    </header>
+    <!--========== HEADER ==========-->
+    <!--========== ASIDE__FIXED ==========-->
+    <aside class="aside__fixed d-none d-lg-flex">
+        <div class="aside__top">
+            <h6 class="h8">0%</h6>
+            <a href="#" class="wrapper scroll-top"></a>
+            <svg class="progress-ring" width="66" height="66">
+                <circle class="progress-ring__circle" stroke="var(--second-color)" stroke-width="2" fill="transparent" r="29" cx="33" cy="33"/>
+            </svg>
+            <hr class="hr__solid">
+        </div>
+        <div class="aside__theme">
+            <span style="--theme: #2cc6ad" data-theme="#2cc6ad" class="active"></span>
+            <span style="--theme: #bd177a" data-theme="#bd177a"></span>
+            <span style="--theme: #ffa020" data-theme="#ffa020"></span>
+            <span style="--theme: #6667be" data-theme="#6667be"></span>
+            <span style="--theme: #66be6f" data-theme="#66be6f"></span>
+            <span style="--theme: #6b6332" data-theme="#6b6332"></span>
+            <span style="--theme: #c62c2c" data-theme="#c62c2c"></span>
+            <span style="--theme: #a17dcc" data-theme="#a17dcc"></span>
+        </div>
+        <div class="aside__social">
+            <hr class="hr__solid">
+            <a href="#" class="reset">
+                <i class="fab fa-twitter icon"></i>
+            </a>
+            <a href="#" class="reset">
+                <i class="fab fa-facebook-f icon"></i>
+            </a>
+            <a href="#" class="reset">
+                <i class="fab fa-linkedin-in icon"></i>
+            </a>
+        </div>
+    </aside>
+    <!--========== ASIDE__FIXED ==========-->
+
+    <!--========== WRAPPER ==========-->
+    <div id="wrapper">
+        <div class="content__holder">
+            <!--========== CONTENT ==========-->
+            <div class="content non--pd">
+                <!--========== SWIPPER CONTAINER ==========-->
+                <div class="slider swiper-container horizontal fadeEffect">
+                    <div class="swiper-wrapper">
+                        <!--========== 1 ==========-->
+                        <div class="swiper-slide">
+                            <img data-swiper-parallax="50%" src="images/bg/1.jpg" alt="slider">
+                            <div data-swiper-parallax="70%" class="slide-content">
+                                <div class="container h-100">
+                                    <div class="holder left">
+                                        <div>
+                                            <span>Lorem, ipsum.</span>
+                                            <h2 class="mb-0">
+                                                WELCOME TO <strong>musical.</strong>
+                                            </h2>
+                                        </div>
+                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis soluta, pariatur possimus aut Lorem, ipsum dolor sit amet consectetur</p>
+                                        <a class="reset btn__one btn--reverse--color" href="about.html">about us</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--========== 2 ==========-->
+                        <div class="swiper-slide">
+                            <img data-swiper-parallax="50%" src="images/bg/2.jpg" alt="slider">
+                            <div data-swiper-parallax="70%" class="slide-content">
+                                <div class="container h-100">
+                                    <div class="holder left">
+                                        <div>
+                                            <span>Lorem, ipsum.</span>
+                                            <h2 class="mb-0">
+                                                DESIGN for <strong>musical.</strong>
+                                            </h2>
+                                        </div>
+                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis soluta, pariatur possimus aut Lorem, ipsum dolor sit amet consectetur  </p>
+                                        <a class="reset btn__one btn--reverse--color" href="about.html">about us</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--========== 3 ==========-->
+                        <div class="swiper-slide">
+                            <img data-swiper-parallax="50%" src="images/bg/3.jpg" alt="slider">
+                            <div data-swiper-parallax="70%" class="slide-content">
+                                <div class="container h-100">
+                                    <div class="holder left">
+                                        <div>
+                                            <span>Lorem, ipsum.</span>
+                                            <h2 class="mb-0">
+                                                We provides <strong>musical.</strong>
+                                            </h2>
+                                        </div>
+                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis soluta, pariatur possimus aut Lorem, ipsum dolor sit amet consectetur  </p>
+                                        <a class="reset btn__one btn--reverse--color" href="about.html">about us</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--========== 4 ==========-->
+                        <div class="swiper-slide">
+                            <img data-swiper-parallax="50%" src="images/bg/4.jpg" alt="slider">
+                            <div data-swiper-parallax="70%" class="slide-content">
+                                <div class="container h-100">
+                                    <div class="holder left">
+                                        <div>
+                                            <span>Lorem, ipsum.</span>
+                                            <h2 class="mb-0">
+                                                join now to <strong>musical.</strong>
+                                            </h2>
+                                        </div>
+                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis soluta, pariatur possimus aut Lorem, ipsum dolor sit amet consectetur  </p>
+                                        <a class="reset btn__one btn--reverse--color" href="about.html">about us</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--========== PAGINATION ==========-->
+                    <div class="swiper-pagination d-none d-lg-flex"></div>
+                    <!--========== NAVIGATION ==========-->
+                    <div class="swiper-button-prev btn__arrow">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="swiper-button-next btn__arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+            <!--========== CONTENT ==========-->
+            <div class="content after--non--pd">
+                <section class="sec__services">
+                    <div class="services__wrapper">
+                        <div class="container">
+                            <h2 class="sec__title text-center non--mr">join us now</h2>
+                            <h3 class="sec__desc">services</h3>
+                            <p class="p__desc mr--layout text-center">Maecenas facilisis facilisis consequat.</p>
+                            <div class="row">
+                                <!--========== 1 ==========-->
+                                <div class="col-sm-12 col-md-6 col-xl-3">
+                                    <div class="services__item">
+                                        <div class="item__icon d-flex justify-content-end">
+                                            <i class="fas fa-music icon h3"></i>
+                                        </div>
+                                        <div class="item__title d-flex justify-content-start">
+                                            <h4 class="text-uppercase">free music</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== 2 ==========-->
+                                <div class="col-sm-12 col-md-6 col-xl-3">
+                                    <div class="services__item">
+                                        <div class="item__icon d-flex justify-content-end">
+                                            <i class="fas fa-utensils icon h3"></i>
+                                        </div>
+                                        <div class="item__title d-flex justify-content-start">
+                                            <h4 class="text-uppercase">Restaurant, cafe</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== 3 ==========-->
+                                <div class="col-sm-12 col-md-6 col-xl-3">
+                                    <div class="services__item">
+                                        <div class="item__icon d-flex justify-content-end">
+                                            <i class="fab fa-playstation icon h3"></i>
+                                        </div>
+                                        <div class="item__title d-flex justify-content-start">
+                                            <h4 class="text-uppercase">gaming video</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== 4 ==========-->
+                                <div class="col-sm-12 col-md-6 col-xl-3">
+                                    <div class="services__item">
+                                        <div class="item__icon d-flex justify-content-end">
+                                            <i class="fas fa-glass-cheers icon h3"></i>
+                                        </div>
+                                        <div class="item__title d-flex justify-content-start">
+                                            <h4 class="text-uppercase">bars, party</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== 5 ==========-->
+                                <div class="col-sm-12 col-md-6 col-xl-3">
+                                    <div class="services__item">
+                                        <div class="item__icon d-flex justify-content-end">
+                                            <i class="fas fa-fire icon h3"></i>
+                                        </div>
+                                        <div class="item__title d-flex justify-content-start">
+                                            <h4 class="text-uppercase">NIGHT PARTY</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== 6 ==========-->
+                                <div class="col-sm-12 col-md-6 col-xl-3">
+                                    <div class="services__item">
+                                        <div class="item__icon d-flex justify-content-end">
+                                            <i class="fab fa-playstation icon h3"></i>
+                                        </div>
+                                        <div class="item__title d-flex justify-content-start">
+                                            <h4 class="text-uppercase">gaming video</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== 7 ==========-->
+                                <div class="col-sm-12 col-md-6 col-xl-3">
+                                    <div class="services__item">
+                                        <div class="item__icon d-flex justify-content-end">
+                                            <i class="fas fa-compact-disc icon h3"></i>
+                                        </div>
+                                        <div class="item__title d-flex justify-content-start">
+                                            <h4 class="text-uppercase">disco, casino</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== 8 ==========-->
+                                <div class="col-sm-12 col-md-6 col-xl-3">
+                                    <div class="services__item">
+                                        <div class="item__icon d-flex justify-content-end">
+                                            <i class="fas fa-utensils icon h3"></i>
+                                        </div>
+                                        <div class="item__title d-flex justify-content-start">
+                                            <h4 class="text-uppercase">Restaurant, cafe</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!--========== CONTENT ==========-->
+            <div class="content">
+                <section class="sec__gallery">
+                    <div class="gallery__wrapper" style="overflow: hidden;">
+                        <h2 class="sec__title text-center non--mr">latest gallery</h2>
+                        <h3 class="sec__desc">gallery</h3>
+                        <p class="p__desc text-center mr--layout">Maecenas facilisis facilisis consequat.</p>
+                        <div class="container">
+                            <div class="row">
+                                <!--========== 1 ==========-->
+                                <div class="col-sm-6 col-lg-4">
+                                    <div class="item">
+                                        <div class="box__img">
+                                            <img src="images/gallery/1.jpg" alt="gallery">
+                                        </div>
+                                        <div class="over__lay"></div>
+                                        <div class="wrapper__contetnt">
+                                            <a class="reset play">
+                                                <i class="far fa-play-circle icon"></i>
+                                            </a> 
+                                            <div>
+                                                <p class="h8">2day ago</p>
+                                                <h6 class="h7"><a href="#" class="reset text-uppercase">CONTRAY TO POPULAR BELIEF, LOREM IPSUM IS NOT SIMPLY RANDOM TEXT.</a></h6>
+                                                <p class="h8">musical club</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== 2 ==========-->
+                                <div class="col-sm-6 col-lg-4">
+                                    <div class="item active">
+                                        <div class="box__img">
+                                            <img src="images/gallery/2.jpg" alt="gallery">
+                                        </div>
+                                        <div class="over__lay"></div>
+                                        <div class="wrapper__contetnt">
+                                            <a class="reset play">
+                                                <i class="far fa-play-circle icon"></i>
+                                            </a> 
+                                            <div>
+                                                <p class="h8">2day ago</p>
+                                                <h6 class="h7"><a href="#" class="reset text-uppercase">CONTRAY TO POPULAR BELIEF, LOREM IPSUM IS NOT SIMPLY RANDOM TEXT.</a></h6>
+                                                <p class="h8">musical club</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== 3 ==========-->
+                                <div class="col-sm-6 col-lg-4">
+                                    <div class="item">
+                                        <div class="box__img">
+                                            <img src="images/gallery/3.jpg" alt="gallery">
+                                        </div>
+                                        <div class="over__lay"></div>
+                                        <div class="wrapper__contetnt">
+                                            <a class="reset play">
+                                                <i class="far fa-play-circle icon"></i>
+                                            </a> 
+                                            <div>
+                                                <p class="h8">2day ago</p>
+                                                <h6 class="h7"><a href="#" class="reset text-uppercase">CONTRAY TO POPULAR BELIEF, LOREM IPSUM IS NOT SIMPLY RANDOM TEXT.</a></h6>
+                                                <p class="h8">musical club</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== 4 ==========-->
+                                <div class="col-sm-6 col-lg-4">
+                                    <div class="item">
+                                        <div class="box__img">
+                                            <img src="images/gallery/9.jpg" alt="gallery">
+                                        </div>
+                                        <div class="over__lay"></div>
+                                        <div class="wrapper__contetnt">
+                                            <a class="reset play">
+                                                <i class="far fa-play-circle icon"></i>
+                                            </a> 
+                                            <div>
+                                                <p class="h8">2day ago</p>
+                                                <h6 class="h7"><a href="#" class="reset text-uppercase">CONTRAY TO POPULAR BELIEF, LOREM IPSUM IS NOT SIMPLY RANDOM TEXT.</a></h6>
+                                                <p class="h8">musical club</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== 5 ==========-->
+                                <div class="col-sm-6 col-lg-4">
+                                    <div class="item">
+                                        <div class="box__img">
+                                            <img src="images/gallery/7.jpg" alt="gallery">
+                                        </div>
+                                        <div class="over__lay"></div>
+                                        <div class="wrapper__contetnt">
+                                            <a class="reset play">
+                                                <i class="far fa-play-circle icon"></i>
+                                            </a> 
+                                            <div>
+                                                <p class="h8">2day ago</p>
+                                                <h6 class="h7"><a href="#" class="reset text-uppercase">CONTRAY TO POPULAR BELIEF, LOREM IPSUM IS NOT SIMPLY RANDOM TEXT.</a></h6>
+                                                <p class="h8">musical club</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== 6 ==========-->
+                                <div class="col-sm-6 col-lg-4">
+                                    <div class="item">
+                                        <div class="box__img">
+                                            <img src="images/gallery/10.jpg" alt="gallery">
+                                        </div>
+                                        <div class="over__lay"></div>
+                                        <div class="wrapper__contetnt">
+                                            <a class="reset play">
+                                                <i class="far fa-play-circle icon"></i>
+                                            </a> 
+                                            <div>
+                                                <p class="h8">2day ago</p>
+                                                <h6 class="h7"><a href="#" class="reset text-uppercase">CONTRAY TO POPULAR BELIEF, LOREM IPSUM IS NOT SIMPLY RANDOM TEXT.</a></h6>
+                                                <p class="h8">musical club</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!--========== CONTENT ==========-->
+            <div class="content before--non--pd before--non--pd--responsive">
+                <section  class="sec__about">
+                    <div class="container">
+                        <h2 class="sec__title text-center non--mr">pricing plans</h2>
+                        <h3 class="sec__desc">about</h3>
+                        <p class="p__desc text-center mr--layout">Maecenas facilisis facilisis consequat.</p>
+                        <div class="pricing__wrapper">
+                            <div class="row">
+                                <!--========== 1 ==========-->
+                                <div class="col-sm-12 col-md-6 col-xl-4 order-2">
+                                    <div class="pricing__item text-center">
+                                        <div class="item__header">
+                                            <h4 class="text-uppercase">standard plan</h4>
+                                            <p class="text-capitalize">for guest started</p>
+                                        </div>
+                                        <div class="item__body">
+                                            <ul class="features">
+                                                <li><p>2 limited download music.</p></li>
+                                                <li><p>2 limited download music.</p></li>
+                                                <li><p>2 limited download music.</p></li>
+                                                <li><p>2 limited download music.</p></li>
+                                                <li><p>2 limited download music.</p></li>
+                                            </ul>
+                                            <hr class="hr__solid">
+                                            <div class="price">
+                                                <h3 class="mb-0">86$</h3>
+                                                <p>per month</p>
+                                                <button class="btn--reset btn__one btn--reverse--color">purchase</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== 2 ==========-->
+                                <div class="col-sm-12 col-xl-4 order-2 order-md-1 order-xl-2">
+                                    <div class="pricing__item text-center">
+                                        <div class="item__header">
+                                            <h4 class="text-uppercase">basic plan</h4>
+                                            <p class="text-capitalize">for users (recommend)</p>
+                                        </div>
+                                        <div class="item__body">
+                                            <ul class="features">
+                                                <li><p>10 limited download music.</p></li>
+                                                <li><p>10 limited download music.</p></li>
+                                                <li><p>10 limited download music.</p></li>
+                                                <li><p>10 limited download music.</p></li>
+                                                <li><p>10 limited download music.</p></li>
+                                                <li><p>10 limited download music.</p></li>
+                                            </ul>
+                                            <hr class="hr__solid">
+                                            <div class="price">
+                                                <h3 class="mb-0">115$</h3>
+                                                <p>per month</p>
+                                                <button class="btn--reset btn__one btn--reverse--color">purchase</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== 3 ==========-->
+                                <div class="col-sm-12 col-md-6 col-xl-4 order-2">
+                                    <div class="pricing__item text-center">
+                                        <div class="item__header">
+                                            <h4 class="text-uppercase">business plan</h4>
+                                            <p class="text-capitalize">for business man</p>
+                                        </div>
+                                        <div class="item__body">
+                                            <ul class="features">
+                                                <li><p>un limited download music.</p></li>
+                                                <li><p>un limited download music.</p></li>
+                                                <li><p>un limited download music.</p></li>
+                                                <li><p>un limited download music.</p></li>
+                                                <li><p>un limited download music.</p></li>
+                                            </ul>
+                                            <hr class="hr__solid">
+                                            <div class="price">
+                                                <h3 class="mb-0">200$</h3>
+                                                <p>per month</p>
+                                                <button class="btn--reset btn__one btn--reverse--color">purchase</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!--========== CONTENT ==========-->
+            <div class="content non--pd responsive" data-bg style="--background: url('../images/bg/music.jpg');--responsive: var(--one-color)">
+                <div class="over__lay"></div>
+                <section class="sec__music list">
+                    <div class="container" style="overflow: hidden;">
+                        <div class="half__right">
+                            <h2 class="sec__title">enjoy now</h2>
+                            <h3 class="sec__desc">music</h3>
+                            <p class="p__desc mr--layout">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, provident culpa sequi ipsam sit excepturi ipsum sint esse cumque ea explicabo dolorum rem delectus voluptatem magnam voluptatibus, tempore perspiciatis quis.</p>
+                            <ul class="list-unstyled list__wrapper">
+                                <!--========== 1 ==========-->
+                                <li class="active">
+                                    <div class="title" data-audio>
+                                        <i class="fas fa-play icon"></i> <h6 class="mb-0 name">Drop that beat</h6>
+                                        <audio preload="metadata" controls style="height: 0; width: 0; visibility: hidden; pointer-events: none;">
+                                            <source src="audio/audio.mp3" type="audio/mp3">
+                                        </audio>
+                                    </div>
+                                    <div class="duration">00:00</div>
+                                </li>
+                                <!--========== 2 ==========-->
+                                <li>
+                                    <div class="title" data-audio>
+                                        <i class="fas fa-play icon"></i> <h6 class="mb-0 name">Hey, Mister Dj</h6>
+                                        <audio preload="metadata" controls style="height: 0; width: 0; visibility: hidden; pointer-events: none;">
+                                            <source src="audio/audio2.mp3" type="audio/mp3">
+                                        </audio>
+                                    </div>
+                                    <div class="duration">00:00</div>
+                                </li>
+                                <!--========== 3 ==========-->
+                                <li>
+                                    <div class="title" data-audio>
+                                        <i class="fas fa-play icon"></i> <h6 class="mb-0 name">Message to my future self</h6>
+                                        <audio preload="metadata" controls style="height: 0; width: 0; visibility: hidden; pointer-events: none;">
+                                            <source src="audio/audio3.mp3" type="audio/mp3">
+                                        </audio>
+                                    </div>
+                                    <div class="duration">00:00</div>
+                                </li>
+                                <!--========== 4 ==========-->
+                                <li>
+                                    <div class="title" data-audio>
+                                        <i class="fas fa-play icon"></i> <h6 class="mb-0 name">Drop that beat</h6>
+                                        <audio preload="metadata" controls style="height: 0; width: 0; visibility: hidden; pointer-events: none;">
+                                            <source src="audio/audio.mp3" type="audio/mp3">
+                                        </audio>
+                                    </div>
+                                    <div class="duration">00:00</div>
+                                </li>
+                                <!--========== 5 ==========-->
+                                <li>
+                                    <div class="title" data-audio>
+                                        <i class="fas fa-play icon"></i> <h6 class="mb-0 name">Hey, Mister Dj</h6>
+                                        <audio preload="metadata" controls style="height: 0; width: 0; visibility: hidden; pointer-events: none;">
+                                            <source src="audio/audio2.mp3" type="audio/mp3">
+                                        </audio>
+                                    </div>
+                                    <div class="duration">00:00</div>
+                                </li>
+                                <!--========== 6 ==========-->
+                                <li>
+                                    <div class="title" data-audio>
+                                        <i class="fas fa-play icon"></i> <h6 class="mb-0 name">Message to my future self</h6>
+                                        <audio preload="metadata" controls style="height: 0; width: 0; visibility: hidden; pointer-events: none;">
+                                            <source src="audio/audio3.mp3" type="audio/mp3">
+                                        </audio>
+                                    </div>
+                                    <div class="duration">00:00</div>
+                                </li>
+                                <!--========== 7 ==========-->
+                                <li>
+                                    <div class="title" data-audio>
+                                        <i class="fas fa-play icon"></i> <h6 class="mb-0 name">Drop that beat</h6>
+                                        <audio preload="metadata" controls style="height: 0; width: 0; visibility: hidden; pointer-events: none;">
+                                            <source src="audio/audio.mp3" type="audio/mp3">
+                                        </audio>
+                                    </div>
+                                    <div class="duration">00:00</div>
+                                </li>
+                                <!--========== 8 ==========-->
+                                <li>
+                                    <div class="title" data-audio>
+                                        <i class="fas fa-play icon"></i> <h6 class="mb-0 name">Hey, Mister Dj</h6>
+                                        <audio preload="metadata" controls style="height: 0; width: 0; visibility: hidden; pointer-events: none;">
+                                            <source src="audio/audio2.mp3" type="audio/mp3">
+                                        </audio>
+                                    </div>
+                                    <div class="duration">00:00</div>
+                                </li>
+                                <!--========== 9 ==========-->
+                                <li>
+                                    <div class="title" data-audio>
+                                        <i class="fas fa-play icon"></i> <h6 class="mb-0 name">Message to my future self</h6>
+                                        <audio preload="metadata" controls style="height: 0; width: 0; visibility: hidden; pointer-events: none;">
+                                            <source src="audio/audio3.mp3" type="audio/mp3">
+                                        </audio>
+                                    </div>
+                                    <div class="duration">00:00</div>
+                                </li>
+                            </ul>
+                            <!--========== control ==========-->
+                            <div class="control" id="music_control">
+                                <div class="title">
+                                    <p class="text-uppercase">playing now</p>
+                                    <h6 class="text-uppercase name">Drop that beat</h6>
+                                </div>
+                                <div class="duration">
+                                    <span class="current__all">0:00</span> / <span class="duration__all">7:51</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!--========== CONTENT ==========-->
+            <div class="content after--non--pd">
+                <section class="sec__events">
+                    <div class="container">
+                        <h2 class="sec__title non--mr">next events</h2>
+                        <h3 class="sec__desc">events</h3>
+                        <p class="p__desc mr--layout">Maecenas facilisis facilisis consequat.</p>
+                        <div class="events__wrapper">
+                            <!--========== 1 ==========-->
+                            <div class="row">
+                                <!--========== GRID ==========-->
+                                <div class="col-lg-6">
+                                    <div class="description">
+                                        <div class="date">
+                                            <span class="day">22</span>
+                                            <span class="month">apr</span>
+                                        </div>
+                                        <div class="title">
+                                            <h5 class="text-uppercase mb-0"><a href="#" class="reset">Color Full Carnaval Off Clien Base</a></h5>
+                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat exercitationem minus totam, possimus. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== GRID ==========-->
+                                <div class="col-lg-6">
+                                    <div class="information">
+                                        <span><i class="fas fa-map-marker-alt icon"></i> location</span>
+                                        <span><i class="far fa-clock icon"></i> time</span>
+                                        <span><i class="fab fa-cc-visa icon"></i> price</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="hr__solid">
+                            <!--========== 2 ==========-->
+                            <div class="row">
+                                <!--========== GRID ==========-->
+                                <div class="col-lg-6">
+                                    <div class="description">
+                                        <div class="date">
+                                            <span class="day">05</span>
+                                            <span class="month">jan</span>
+                                        </div>
+                                        <div class="title">
+                                            <h5 class="text-uppercase mb-0"><a href="#" class="reset">Full Show For Musican Relax</a></h5>
+                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat exercitationem minus totam, possimus. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== GRID ==========-->
+                                <div class="col-lg-6">
+                                    <div class="information">
+                                        <span><i class="fas fa-map-marker-alt icon"></i> location</span>
+                                        <span><i class="far fa-clock icon"></i> time</span>
+                                        <span><i class="fab fa-cc-visa icon"></i> price</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="hr__solid">
+                            <!--========== 3 ==========-->
+                            <div class="row">
+                                <!--========== GRID ==========-->
+                                <div class="col-lg-6">
+                                    <div class="description">
+                                        <div class="date">
+                                            <span class="day">30</span>
+                                            <span class="month">may</span>
+                                        </div>
+                                        <div class="title">
+                                            <h5 class="text-uppercase mb-0"><a href="#" class="reset">Happy New Year For Class 2021</a></h5>
+                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat exercitationem minus totam, possimus. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== GRID ==========-->
+                                <div class="col-lg-6">
+                                    <div class="information">
+                                        <span><i class="fas fa-map-marker-alt icon"></i> location</span>
+                                        <span><i class="far fa-clock icon"></i> time</span>
+                                        <span><i class="fab fa-cc-visa icon"></i> price</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="hr__solid">
+                            <!--========== 4 ==========-->
+                            <div class="row">
+                                <!--========== GRID ==========-->
+                                <div class="col-lg-6">
+                                    <div class="description">
+                                        <div class="date">
+                                            <span class="day">12</span>
+                                            <span class="month">feb</span>
+                                        </div>
+                                        <div class="title">
+                                            <h5 class="text-uppercase mb-0"><a href="#" class="reset">Party For Famous With Alan Walker</a></h5>
+                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat exercitationem minus totam, possimus. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== GRID ==========-->
+                                <div class="col-lg-6">
+                                    <div class="information">
+                                        <span><i class="fas fa-map-marker-alt icon"></i> location</span>
+                                        <span><i class="far fa-clock icon"></i> time</span>
+                                        <span><i class="fab fa-cc-visa icon"></i> price</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!--========== CONTENT ==========-->
+            <div class="content before--non--pd">
+                <section class="sec__about">
+                    <div class="container">
+                        <h2 class="sec__title text-center non--mr">our clients</h2>
+                        <h3 class="sec__desc">about</h3>
+                        <p class="p__desc text-center mr--layout">Maecenas facilisis facilisis consequat.</p>
+                        <div class="clients__wrapper">
+                            <div class="row">
+                                <!--========== 1 ==========-->
+                                <div class="col-sm-6 col-xl-3">
+                                    <div class="client__item">
+                                        <a href="#"><img src="images/about/7.png" alt="client"></a>
+                                    </div>
+                                </div>
+                                <!--========== 2 ==========-->
+                                <div class="col-sm-6 col-xl-3">
+                                    <div class="client__item">
+                                        <a href="#"><img src="images/about/8.png" alt="client"></a>
+                                    </div>
+                                </div>
+                                <!--========== 3 ==========-->
+                                <div class="col-sm-6 col-xl-3">
+                                    <div class="client__item">
+                                        <a href="#"><img src="images/about/9.png" alt="client"></a>
+                                    </div>
+                                </div>
+                                <!--========== 4 ==========-->
+                                <div class="col-sm-6 col-xl-3">
+                                    <div class="client__item">
+                                        <a href="#"><img src="images/about/10.png" alt="client"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </section>
+            </div>
+            <!--========== CONTENT ==========-->
+            <div class="content" data-bg style="--background: url('../images/bg/2.png')">
+                <div class="over__lay"></div>
+                <section class="sec__ticket">
+                    <div class="container">
+                        <h2 class="sec__title">GET YOUR TIKETS</h2>
+                        <h3 class="sec__desc">ticket</h3>
+                        <div class="row align-items-start">
+                            <div class="col-lg-8">
+                                <p class="p__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, similique cupiditate? Magni dolores vel exercitationem harum vero fugiat cupiditate neque dolorem perspiciatis cumque iste voluptate ipsum, quia reprehenderit iusto nostrum?</p>
+                            </div>
+                            <div class="col-lg-3 d-flex justify-content-lg-end">
+                                <button class="btn--reset btn__one btn--reverse--color">join us</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!--========== CONTENT ==========-->
+            <div class="content after--non--pd">
+                <section class="sec__news">
+                    <div class="container">
+                        <h2 class="sec__title non--mr">latest news</h2>
+                        <h3 class="sec__desc">news</h3>
+                        <p class="p__desc mr--layout">Maecenas facilisis facilisis consequat.</p>
+                        <div class="news__wrapper">
+                            <div class="row">
+                                <!--========== 1 ==========-->
+                                <div class="col-lg-4">
+                                    <div class="news__item space--left">
+                                        <div class="box__img">
+                                            <img src="images/news/1.jpg" alt="news">
+                                        </div>
+                                        <div class="item__content">
+                                            <h6 class="mb-2">CONTRAY TO POPULAR BELIEF, LOREM IPSUM IS NOT SIMPLY RANDOM TEXT.</h6>
+                                            <p class="mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                            <a href="#" class="reset">read more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== 2 ==========-->
+                                <div class="col-lg-4">
+                                    <div class="news__item space--left active">
+                                        <div class="box__img">
+                                            <img src="images/news/2.jpg" alt="news">
+                                        </div>
+                                        <div class="item__content">
+                                            <h6 class="mb-2">CONTRAY TO POPULAR BELIEF, LOREM IPSUM IS NOT SIMPLY RANDOM TEXT.</h6>
+                                            <p class="mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                            <a href="#" class="reset">read more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== 3 ==========-->
+                                <div class="col-lg-4">
+                                    <div class="news__item space--left">
+                                        <div class="box__img">
+                                            <img src="images/news/3.jpg" alt="news">
+                                        </div>
+                                        <div class="item__content">
+                                            <h6 class="mb-2">CONTRAY TO POPULAR BELIEF, LOREM IPSUM IS NOT SIMPLY RANDOM TEXT.</h5>
+                                            <p class="mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                            <a href="#" class="reset">read more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!--========== CONTENT ==========-->
+            <div class="content before--non--pd">
+                <section class="sec__subscrib" style="overflow: visible;">
+                    <div class="container">
+                        <div class="row align-items-start">
+                            <div class="col-lg-4">
+                                <h2 class="sec__title non--mr">SUBSCRIBE US</h2>
+                                <p class="p__desc">don’t miss out our latest updates.</p>
+                            </div>
+                            <div class="col-lg-8">
+                                <form action="">
+                                    <input class="input__one" type="email" placeholder="Enter your E-mail">
+                                    <button class="btn__one">subscrib now</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!--========== CONTENT ==========-->
+            <div class="content non--pd" data-bg style="--background: url('../images/bg/3.png');">
+                <div class="over__lay"></div>
+                <section class="sec__purchase" style="overflow: hidden;">
+                    <div class="full__right"></div>
+                    <div class="dimension">
+                        <h3 class="sec__desc">purchase</h3>
+                        <h2 class="sec__title">
+                            purchase now
+                        </h2>
+                        <p class="p__desc mr--layout">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, provident culpa sequi ipsam sit excepturi ipsum sint esse cumque ea explicab dolorum rem delectus voluptatem magnam voluptatibus, tempore perspiciatis quis.</p>
+                        <button class="btn--reset btn__one btn--reverse--color">hire me now</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!--========== WRAPPER ==========-->
+    <!--========== FOOTER ==========-->
+    <footer>
+        <div class="container">
+            <div class="row" style="row-gap: var(--between-spacing);">
+                <div class="col-xl-6">
+                    <div class="logo__wrapper">
+                        <a href="index.html">
+                            <img src="images/logo.png" alt="logo">
+                        </a>
+                    </div>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam, eos corrupti in aspernatur ex porro aperiam quibusdam.</p>
+                </div>
+                <div class="col-xl-6">
+                    <div class="links__wrapper">
+                        <h6 class="text-uppercase">links</h6>
+                        <div class="ul__wrapper">
+                            <ul class="list-unstyled">
+                                <li><a href="" class="reset">home</a></li>
+                                <li><a href="" class="reset">about</a></li>
+                                <li><a href="" class="reset">contact</a></li>
+                                <li><a href="" class="reset">gallery</a></li>
+                                <li><a href="" class="reset">events</a></li>
+                                <li><a href="" class="reset">music</a></li>
+                            </ul>
+                            <ul class="list-unstyled">
+                                <li><a href="" class="reset">home-slider</a></li>
+                                <li><a href="" class="reset">home-video</a></li>
+                                <li><a href="" class="reset">home-slideshow</a></li>
+                                <li><a href="" class="reset">gallery-2col</a></li>
+                                <li><a href="" class="reset">gallery-3col</a></li>
+                                <li><a href="" class="reset">gallery-fullscreen</a></li>
+                            </ul>
+                            <ul class="list-unstyled">
+                                <li><a href="" class="reset">music-loop</a></li>
+                                <li><a href="" class="reset">music-around</a></li>
+                                <li><a href="" class="reset">events-list</a></li>
+                                <li><a href="" class="reset">events-commingsoon</a></li>
+                                <li><a href="" class="reset">events-grid</a></li>
+                                <li><a href="" class="reset">events-listed</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--========== FOOTER ==========-->
+    <script src="js/plugins.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>

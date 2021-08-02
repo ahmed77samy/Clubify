@@ -173,7 +173,7 @@ window.onload = _ => {
     const li_drop = document.querySelectorAll('.content__menu .drop')
     for (const ele of [...li_drop]) {
         ele.onclick = function (e) {
-            e.preventDefault();
+            // e.preventDefault();
             if(ele.querySelector('ul.drop__down').classList.contains('is-hidden')){
                 Musical.fade(ele.querySelector('ul.drop__down'),'in', 400 ,'flex');
                 ele.querySelector('ul.drop__down').classList.remove('is-hidden');
@@ -203,7 +203,7 @@ window.onload = _ => {
     //========== ASIDE TOP ==========//
     function asideTop() {
         let circle = document.querySelector('.aside__top circle');
-        const ele = document.querySelector(".aside__top h2")
+        const ele = document.querySelector(".aside__top h6")
         let scroll = document.documentElement.getBoundingClientRect().y
         let height = document.scrollingElement.scrollHeight - window.innerHeight
         ele.textContent = `${scroll ? Math.round(Math.abs(scroll * 100) / height) : 0}%`
@@ -216,20 +216,23 @@ window.onload = _ => {
     let scrolltop = document.querySelector('.aside__top .scroll-top');
     scrolltop.onclick = function (e) {
         e.preventDefault()
-        window.scrollTo(0,0)
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     }
 
     //========== GALLERY GRID ==========//
-    if(document.querySelector(".sec__gallery .gallery__wrapper--waterfall")) {
+    if(document.querySelector(".sec__gallery .gallery__wrapper.waterfall")) {
         let waterfall = new Waterfall({
-            containerSelector: '.sec__gallery .gallery__wrapper--waterfall',
+            containerSelector: '.sec__gallery .gallery__wrapper.waterfall',
             boxSelector: '.sec__gallery .item',
             minBoxWidth: 370
         });
     }
 
     //========== GALLERY SWIPPER ==========//
-    window.swiper_gallery = new Swiper('.sec__gallery.swipper .gallery.swiper-container', {
+    window.swiper_gallery = new Swiper('.sec__gallery .gallery__wrapper.swipper .gallery.swiper-container', {
         slidesPerView: 1,
         grabCursor: true,
         parallax:true,
@@ -258,13 +261,13 @@ window.onload = _ => {
     });
 
     //========== TOGGLE ABOUT ITEMS ==========//
-    let about_items = document.querySelectorAll('.sec__about.toggle .accordion__item')
+    let about_items = document.querySelectorAll('.sec__about .accordion__wrapper.toggle .accordion__item')
     for(ele of [...about_items]) {
         ele.addEventListener('click', function () {
             if(this.classList.contains('active')) {
                 return false
             }
-            let old = document.querySelector('.sec__about.toggle .accordion__item.active')
+            let old = document.querySelector('.sec__about .accordion__wrapper.toggle .accordion__item.active')
             old.querySelector('.accordion__answer').style.display = "none"
             old.classList.remove('active')
             if(this.classList.contains('active')) {
@@ -279,7 +282,7 @@ window.onload = _ => {
 
     //========== PLAY AND PAUSE AUDIO MUSIC ==========//
     let music_audio = document.querySelectorAll(".sec__music [data-audio]")
-    let music_duration_list = document.querySelectorAll(".sec__music.list li .duration")
+    let music_duration_list = document.querySelectorAll(".sec__music .list__wrapper li .duration")
     let music_control = document.querySelector(".sec__music #music_control")
     music_audio.forEach(e => {
         // set duration audios
@@ -347,29 +350,31 @@ window.onload = _ => {
     })
 
     //========== TESTIMONIALS COTROL ==========//
-    let testi_control_prev = document.querySelector('.sec__testimonials .testimonials__control .prev')
-    let testi_control_next = document.querySelector('.sec__testimonials .testimonials__control .next')
-    let testi_img = document.querySelectorAll('.sec__testimonials .items__img img')
-    let testi_content = document.querySelectorAll('.sec__testimonials .items__content')
+    let testi_control_prev = document.querySelector('.sec__about .testimonials__wrapper .testimonials__control .prev')
+    let testi_control_next = document.querySelector('.sec__about .testimonials__wrapper .testimonials__control .next')
+    let testi_img = document.querySelectorAll('.sec__about .testimonials__wrapper .items__img img')
+    let testi_content = document.querySelectorAll('.sec__about .testimonials__wrapper .items__content')
     testi_control_next?.addEventListener('click',function () {
         Musical.increaseSliceCount(testi_img,"testi",3,400)
         Musical.increaseSliceCount(testi_content,"testi",3,400)
         let data = ([...testi_img].filter(e => e.classList.contains('active'))[0]).getAttribute("data-testi")
-        document.querySelector(".sec__testimonials .testimonials__numbers").textContent = data
+        document.querySelector(".sec__about .testimonials__wrapper .testimonials__numbers").textContent = data
     })
     testi_control_prev?.addEventListener('click',function () {
         Musical.decreaseSliceCount(testi_img,"testi",3,400)
         Musical.decreaseSliceCount(testi_content,"testi",3,400)
         let data = ([...testi_img].filter(e => e.classList.contains('active'))[0]).getAttribute("data-testi")
-        document.querySelector(".sec__testimonials .testimonials__numbers").textContent = data
+        document.querySelector(".sec__about .testimonials__wrapper .testimonials__numbers").textContent = data
     }) 
 
     //========== SLIDERS SWIPPER FUNCTIONS ==========//
     window.swiper = new Swiper('.slider.swiper-container', {
+        direction: document.querySelector(".slider.swiper-container").classList.contains("vertical") ? 'vertical' : 'horizontal',
         grabCursor: true,
-        parallax:true,
+        parallax: document.querySelector(".slider.swiper-container").classList.contains("parallax"),
         speed: 1600,
         threshold: 10,
+        effect: document.querySelector(".slider.swiper-container").classList.contains("fadeEffect") && "fade",
         pagination: {
           el: '.swiper-pagination',
           clickable: true
@@ -386,7 +391,7 @@ window.onload = _ => {
     pagination_current.setAttribute("class","pagination-before")
     pagination_current.innerHTML = `
     <span class="current">0${window.swiper.slides.filter(e=> e.classList.contains('swiper-slide-active'))[0]?.getAttribute("aria-label").slice(0,1)}</span>`
-    pagination_after_icon.setAttribute("class","fas fa-chevron-up icon")
+    pagination_after_icon.setAttribute("class","far fa-images icon")
     pagination_after.appendChild(pagination_after_icon)
     document.querySelector(".slider .swiper-pagination")?.appendChild(pagination_after)
     document.querySelector(".slider .swiper-pagination")?.appendChild(pagination_current)
@@ -398,7 +403,7 @@ window.onload = _ => {
     })
     window.swiper.on('slideChange', function () {
         setTimeout(_=>pagination_current.innerHTML = `
-        <span class="current">0${window.swiper.slides.filter(e=> e.classList.contains('.slider swiper-slide-active'))[0].getAttribute("aria-label").slice(0,1)}</span>`)
+        <span class="current">0${window.swiper.slides.filter(e=> e.classList.contains('swiper-slide-active'))[0].getAttribute("aria-label").slice(0,1)}</span>`)
     });
     //========== CHANGE COLOR THEME ==========//
     let sp_theme = document.querySelectorAll('.aside__theme span')
