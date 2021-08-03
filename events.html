@@ -1,0 +1,430 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/plugins.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap">
+</head>
+<body>
+    <!--========== HEADER ==========-->
+    <header>
+        <!--========== HEADER__NAV ==========-->
+        <nav class="header__nav">
+            <!--========== NAV--RIGHT ==========-->
+            <div class="nav--right">
+                <ul class="list-unstyled mb-0 h-100 d-none d-lg-flex">
+                    <li>
+                        <a href="index.html" class="reset">home</a>
+                        <ul class="list-unstyled mb-0 drop__down">
+                            <li><a href="index.html" class="reset">home 01</a></li>
+                            <li><a href="index2.html" class="reset">home 02</a></li>
+                            <li><a href="index3.html" class="reset">home 03</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="reset">about</a></li>
+                    <li><a href="#" class="reset">gallery</a></li>
+                    <li>
+                        <a href="#" class="reset">slider</a>
+                        <ul class="list-unstyled mb-0 drop__down">
+                            <li><a href="#" class="reset">slider</a></li>
+                            <li><a href="#" class="reset">slider</a></li>
+                            <li><a href="#" class="reset">slider</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--========== NAV__LOGO ==========-->
+            <div class="nav__logo">
+                <a href="index.html" class="reset"><img src="images/logo.png" alt="logo"></a>
+            </div>
+            <!--========== NAV--LEFT ==========-->
+            <div class="nav--left">
+                <ul class="list-unstyled mb-0 h-100 d-none d-lg-flex">
+                    <li><a href="#" class="reset">services</a></li>
+                    <li>
+                        <a href="#" class="reset">events</a>
+                        <ul class="list-unstyled mb-0 drop__down">
+                            <li><a href="#" class="reset">events</a></li>
+                            <li><a href="#" class="reset">events</a></li>
+                            <li><a href="#" class="reset">events</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="reset">music</a></li>
+                    <li><a href="#" class="reset">contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!--========== HEADER__SEARCH ==========-->
+        <div class="header__search d-none d-sm-flex">
+            <i class="icon fas fa-search"></i>
+        </div>
+        <div class="content__search">
+            <form action="#">
+                <input type="text" id="search" placeholder="SEARCH HERE">
+                <button><i class="icon fas fa-search"></i></button>
+            </form>
+        </div>
+        <!--========== HEADER__MENU ==========-->
+        <div class="header__menu">
+            <i class="icon fas fa-bars"></i>
+        </div>
+        <div class="content__menu">
+            <ul class="list-unstyled mb-0">
+                <li class="drop">
+                    <a class="reset">home</a>&nbsp;&nbsp;&nbsp;<i class="icon fas fa-angle-right"></i>
+                    <ul class="list-unstyled mb-0 drop__down is-hidden">
+                        <li><a href="index.html" class="reset">home 01</a></li>
+                        <li><a href="index2.html" class="reset">home 02</a></li>
+                        <li><a href="index3.html" class="reset">home 03</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="reset">about</a></li>
+                <li><a href="#" class="reset">gallery</a></li>
+                <li class="drop">
+                    <a class="reset">events</a>&nbsp;&nbsp;&nbsp;<i class="icon fas fa-angle-right"></i>
+                    <ul class="list-unstyled mb-0 drop__down is-hidden">
+                        <li><a href="#" class="reset">events</a></li>
+                        <li><a href="#" class="reset">events</a></li>
+                        <li><a href="#" class="reset">events</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="reset">music</a></li>
+                <li><a href="#" class="reset">contact</a></li>
+            </ul>
+        </div>
+    </header>
+    <!--========== HEADER ==========-->
+    <!--========== ASIDE__FIXED ==========-->
+    <aside class="aside__fixed d-none d-lg-flex">
+        <div class="aside__top">
+            <h6 class="h8">0%</h6>
+            <a href="#" class="wrapper scroll-top"></a>
+            <svg class="progress-ring" width="66" height="66">
+                <circle class="progress-ring__circle" stroke="var(--second-color)" stroke-width="2" fill="transparent" r="29" cx="33" cy="33"/>
+            </svg>
+            <hr class="hr__solid">
+        </div>
+        <div class="aside__theme">
+            <span style="--theme: #2cc6ad" data-theme="#2cc6ad" class="active"></span>
+            <span style="--theme: #bd177a" data-theme="#bd177a"></span>
+            <span style="--theme: #ffa020" data-theme="#ffa020"></span>
+            <span style="--theme: #6667be" data-theme="#6667be"></span>
+            <span style="--theme: #66be6f" data-theme="#66be6f"></span>
+            <span style="--theme: #6b6332" data-theme="#6b6332"></span>
+            <span style="--theme: #c62c2c" data-theme="#c62c2c"></span>
+            <span style="--theme: #a17dcc" data-theme="#a17dcc"></span>
+        </div>
+        <div class="aside__social">
+            <hr class="hr__solid">
+            <a href="#" class="reset">
+                <i class="fab fa-twitter icon"></i>
+            </a>
+            <a href="#" class="reset">
+                <i class="fab fa-facebook-f icon"></i>
+            </a>
+            <a href="#" class="reset">
+                <i class="fab fa-linkedin-in icon"></i>
+            </a>
+        </div>
+    </aside>
+    <!--========== ASIDE__FIXED ==========-->
+
+    <!--========== WRAPPER ==========-->
+    <div id="wrapper">
+        <div class="content__holder">
+            <!--========== CONTENT ==========-->
+            <div class="content non--pd">
+                <div class="slider inner__page" style="--background: url('../images/bg/1.jpg')">
+                    <div class="slide-content">
+                        <div class="container h-100">
+                            <div class="holder center">
+                                <div>
+                                    <h2 class="mb-4">
+                                        WELCOME TO <strong>musical.</strong>
+                                    </h2>
+                                    <h3 class="mb-0">
+                                        <strong>events</strong> page
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--========== CONTENT ==========-->
+            <div class="content after--non--pd">
+                <section class="sec__events">
+                    <div class="container">
+                        <h2 class="sec__title non--mr">next events</h2>
+                        <p class="p__desc mr--layout">Maecenas facilisis facilisis consequat.</p>
+                        <div class="events__wrapper">
+                            <!--========== 1 ==========-->
+                            <div class="row">
+                                <!--========== GRID ==========-->
+                                <div class="col-lg-6">
+                                    <div class="description">
+                                        <div class="date">
+                                            <span class="day">22</span>
+                                            <span class="month">apr</span>
+                                        </div>
+                                        <div class="title">
+                                            <h5 class="text-uppercase mb-0"><a href="#" class="reset">Color Full Carnaval Off Clien Base</a></h5>
+                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat exercitationem minus totam, possimus. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== GRID ==========-->
+                                <div class="col-lg-6">
+                                    <div class="information">
+                                        <span><i class="fas fa-map-marker-alt icon"></i> location</span>
+                                        <span><i class="far fa-clock icon"></i> time</span>
+                                        <span><i class="fab fa-cc-visa icon"></i> price</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="hr__solid">
+                            <!--========== 2 ==========-->
+                            <div class="row">
+                                <!--========== GRID ==========-->
+                                <div class="col-lg-6">
+                                    <div class="description">
+                                        <div class="date">
+                                            <span class="day">05</span>
+                                            <span class="month">jan</span>
+                                        </div>
+                                        <div class="title">
+                                            <h5 class="text-uppercase mb-0"><a href="#" class="reset">Full Show For Musican Relax</a></h5>
+                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat exercitationem minus totam, possimus. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== GRID ==========-->
+                                <div class="col-lg-6">
+                                    <div class="information">
+                                        <span><i class="fas fa-map-marker-alt icon"></i> location</span>
+                                        <span><i class="far fa-clock icon"></i> time</span>
+                                        <span><i class="fab fa-cc-visa icon"></i> price</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="hr__solid">
+                            <!--========== 3 ==========-->
+                            <div class="row">
+                                <!--========== GRID ==========-->
+                                <div class="col-lg-6">
+                                    <div class="description">
+                                        <div class="date">
+                                            <span class="day">30</span>
+                                            <span class="month">may</span>
+                                        </div>
+                                        <div class="title">
+                                            <h5 class="text-uppercase mb-0"><a href="#" class="reset">Happy New Year For Class 2021</a></h5>
+                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat exercitationem minus totam, possimus. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== GRID ==========-->
+                                <div class="col-lg-6">
+                                    <div class="information">
+                                        <span><i class="fas fa-map-marker-alt icon"></i> location</span>
+                                        <span><i class="far fa-clock icon"></i> time</span>
+                                        <span><i class="fab fa-cc-visa icon"></i> price</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="hr__solid">
+                            <!--========== 4 ==========-->
+                            <div class="row">
+                                <!--========== GRID ==========-->
+                                <div class="col-lg-6">
+                                    <div class="description">
+                                        <div class="date">
+                                            <span class="day">12</span>
+                                            <span class="month">feb</span>
+                                        </div>
+                                        <div class="title">
+                                            <h5 class="text-uppercase mb-0"><a href="#" class="reset">Party For Famous With Alan Walker</a></h5>
+                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat exercitationem minus totam, possimus. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== GRID ==========-->
+                                <div class="col-lg-6">
+                                    <div class="information">
+                                        <span><i class="fas fa-map-marker-alt icon"></i> location</span>
+                                        <span><i class="far fa-clock icon"></i> time</span>
+                                        <span><i class="fab fa-cc-visa icon"></i> price</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="hr__solid">
+                            <!--========== 5 ==========-->
+                            <div class="row">
+                                <!--========== GRID ==========-->
+                                <div class="col-lg-6">
+                                    <div class="description">
+                                        <div class="date">
+                                            <span class="day">07</span>
+                                            <span class="month">may</span>
+                                        </div>
+                                        <div class="title">
+                                            <h5 class="text-uppercase mb-0"><a href="#" class="reset">Party For Famous With Alan Walker</a></h5>
+                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat exercitationem minus totam, possimus. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== GRID ==========-->
+                                <div class="col-lg-6">
+                                    <div class="information">
+                                        <span><i class="fas fa-map-marker-alt icon"></i> location</span>
+                                        <span><i class="far fa-clock icon"></i> time</span>
+                                        <span><i class="fab fa-cc-visa icon"></i> price</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="hr__solid">
+                            <!--========== 6 ==========-->
+                            <div class="row">
+                                <!--========== GRID ==========-->
+                                <div class="col-lg-6">
+                                    <div class="description">
+                                        <div class="date">
+                                            <span class="day">10</span>
+                                            <span class="month">aug</span>
+                                        </div>
+                                        <div class="title">
+                                            <h5 class="text-uppercase mb-0"><a href="#" class="reset">Party For Famous With Alan Walker</a></h5>
+                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat exercitationem minus totam, possimus. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== GRID ==========-->
+                                <div class="col-lg-6">
+                                    <div class="information">
+                                        <span><i class="fas fa-map-marker-alt icon"></i> location</span>
+                                        <span><i class="far fa-clock icon"></i> time</span>
+                                        <span><i class="fab fa-cc-visa icon"></i> price</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="hr__solid">
+                            <!--========== 7 ==========-->
+                            <div class="row">
+                                <!--========== GRID ==========-->
+                                <div class="col-lg-6">
+                                    <div class="description">
+                                        <div class="date">
+                                            <span class="day">25</span>
+                                            <span class="month">jan</span>
+                                        </div>
+                                        <div class="title">
+                                            <h5 class="text-uppercase mb-0"><a href="#" class="reset">Party For Famous With Alan Walker</a></h5>
+                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat exercitationem minus totam, possimus. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== GRID ==========-->
+                                <div class="col-lg-6">
+                                    <div class="information">
+                                        <span><i class="fas fa-map-marker-alt icon"></i> location</span>
+                                        <span><i class="far fa-clock icon"></i> time</span>
+                                        <span><i class="fab fa-cc-visa icon"></i> price</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="hr__solid">
+                            <!--========== 8 ==========-->
+                            <div class="row">
+                                <!--========== GRID ==========-->
+                                <div class="col-lg-6">
+                                    <div class="description">
+                                        <div class="date">
+                                            <span class="day">19</span>
+                                            <span class="month">feb</span>
+                                        </div>
+                                        <div class="title">
+                                            <h5 class="text-uppercase mb-0"><a href="#" class="reset">Party For Famous With Alan Walker</a></h5>
+                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat exercitationem minus totam, possimus. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--========== GRID ==========-->
+                                <div class="col-lg-6">
+                                    <div class="information">
+                                        <span><i class="fas fa-map-marker-alt icon"></i> location</span>
+                                        <span><i class="far fa-clock icon"></i> time</span>
+                                        <span><i class="fab fa-cc-visa icon"></i> price</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--========== EVENTS NAVIGATION ==========-->
+                            <div class="events__navigation">
+                                <a href="#" class="reset btn__one btn--reverse--color">load more</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!--========== WRAPPER ==========-->
+    <!--========== FOOTER ==========-->
+    <footer>
+        <div class="container">
+            <div class="row" style="row-gap: var(--between-spacing);">
+                <div class="col-xl-6">
+                    <div class="logo__wrapper">
+                        <a href="index.html">
+                            <img src="images/logo.png" alt="logo">
+                        </a>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam, eos corrupti in aspernatur ex porro aperiam quibusdam.</p>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="links__wrapper">
+                        <h6 class="text-uppercase">links</h6>
+                        <div class="ul__wrapper">
+                            <ul class="list-unstyled">
+                                <li><a href="" class="reset">home</a></li>
+                                <li><a href="" class="reset">about</a></li>
+                                <li><a href="" class="reset">contact</a></li>
+                                <li><a href="" class="reset">gallery</a></li>
+                                <li><a href="" class="reset">events</a></li>
+                                <li><a href="" class="reset">music</a></li>
+                            </ul>
+                            <ul class="list-unstyled">
+                                <li><a href="" class="reset">home-slider</a></li>
+                                <li><a href="" class="reset">home-video</a></li>
+                                <li><a href="" class="reset">home-slideshow</a></li>
+                                <li><a href="" class="reset">gallery-2col</a></li>
+                                <li><a href="" class="reset">gallery-3col</a></li>
+                                <li><a href="" class="reset">gallery-fullscreen</a></li>
+                            </ul>
+                            <ul class="list-unstyled">
+                                <li><a href="" class="reset">music-loop</a></li>
+                                <li><a href="" class="reset">music-around</a></li>
+                                <li><a href="" class="reset">events-list</a></li>
+                                <li><a href="" class="reset">events-commingsoon</a></li>
+                                <li><a href="" class="reset">events-grid</a></li>
+                                <li><a href="" class="reset">events-listed</a></li>
+                            </ul>
+                        </div>
+                        <hr class="hr__solid">
+                        <div class="copy-right">
+                            <p>&#169; MUSICAL CLUB 2021. ALL RIGHTS RESERVED.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--========== FOOTER ==========-->
+    <script src="js/plugins.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>

@@ -70,7 +70,7 @@ const Musical = {
         const minutes = Math.floor(secs / 60);
         const seconds = Math.floor(secs % 60);
         const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
-        ele.textContent = `${minutes}:${returnedSeconds}`
+        if(ele) ele.textContent = `${minutes}:${returnedSeconds}`
     },
     //========== INCREASE SLICE COUNT ==========//
     increaseSliceCount: function (eles , data , count , duration) {
@@ -282,14 +282,17 @@ window.onload = _ => {
 
     //========== PLAY AND PAUSE AUDIO MUSIC ==========//
     let music_audio = document.querySelectorAll(".sec__music [data-audio]")
-    let music_duration_list = document.querySelectorAll(".sec__music .list__wrapper li .duration")
     let music_control = document.querySelector(".sec__music #music_control")
     music_audio.forEach(e => {
         // set duration audios
-        music_duration_list.forEach(e => {
-            let duration = e.closest("li").querySelector('audio').duration
-            Musical.setDurationAudio(e , duration)
-        })
+        let audio = e.querySelector('audio')
+        if (audio.duration) {
+            Musical.setDurationAudio(e.closest("li").querySelector('.duration') , audio.duration)
+        }else {
+            audio.oncanplay = () => {
+                Musical.setDurationAudio(e.closest("li").querySelector('.duration') , audio.duration)
+            }
+        }
         // audios on click
         e.onclick = function () {
             // callBackPause
@@ -369,12 +372,12 @@ window.onload = _ => {
 
     //========== SLIDERS SWIPPER FUNCTIONS ==========//
     window.swiper = new Swiper('.slider.swiper-container', {
-        direction: document.querySelector(".slider.swiper-container").classList.contains("vertical") ? 'vertical' : 'horizontal',
+        direction: document.querySelector(".slider.swiper-container")?.classList.contains("vertical") ? 'vertical' : 'horizontal',
         grabCursor: true,
-        parallax: document.querySelector(".slider.swiper-container").classList.contains("parallax"),
+        parallax: document.querySelector(".slider.swiper-container")?.classList.contains("parallax"),
         speed: 1600,
         threshold: 10,
-        effect: document.querySelector(".slider.swiper-container").classList.contains("fadeEffect") && "fade",
+        effect: document.querySelector(".slider.swiper-container")?.classList.contains("fadeEffect") ? "fade" : document.querySelector(".slider.swiper-container")?.classList.contains("coverflowEffect") && "coverflow",
         pagination: {
           el: '.swiper-pagination',
           clickable: true
