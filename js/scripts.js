@@ -408,6 +408,35 @@ window.onload = _ => {
         setTimeout(_=>pagination_current.innerHTML = `
         <span class="current">0${window.swiper.slides.filter(e=> e.classList.contains('swiper-slide-active'))[0].getAttribute("aria-label").slice(0,1)}</span>`)
     });
+    //========== SLIDER PARTS ==========//
+    let parts__img = document.querySelectorAll(".slider__parts img")
+    window.glightbox__swiper = new Swiper('.slider__parts .swiper-container', {
+        slidesPerView: 3,
+        speed: 1600,
+        spaceBetween: 10,
+        breakpoints: {
+            600: {
+              slidesPerView: 5,
+            },
+            992: {
+              slidesPerView: 6,
+            },
+        }
+    });
+    parts__img.forEach(e => {
+        e.onclick = () => {
+            let expr = e.getAttribute("disabled")
+            let img__src = e.getAttribute("src")
+            if(expr !== "true" && !getComputedStyle(e.closest(".slider")).getPropertyValue('--background').includes(img__src)) {
+                e.closest('.slider').style.setProperty('--background', `url('../${img__src}')`);
+                parts__img.forEach(img => img.setAttribute('disabled' , true))
+                setTimeout(() => {
+                    parts__img.forEach(img => img.setAttribute('disabled' , false))
+                }, 1000);
+            }
+        }
+    })
+
     //========== CHANGE COLOR THEME ==========//
     let sp_theme = document.querySelectorAll('.aside__theme span')
     Musical.changeTheme(sp_theme)
