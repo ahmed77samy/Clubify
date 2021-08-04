@@ -154,6 +154,10 @@ const Clubify = {
 }
 
 window.onload = _ => {
+    //========== LOADER ==========//
+    let loader = document.getElementById("loader")
+    Clubify.fade(loader , "out")
+
     //========== TOGGLE SEARCH ==========//
     let search_ele = document.querySelector(".header__search")
     let search_target = document.querySelector(".content__search")

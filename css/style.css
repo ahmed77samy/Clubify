@@ -19,6 +19,7 @@ Version: 1.0
 Release Date: 16/07/2021 ]
 +++ General Style +++
 +++ reset +++
++++ loader +++
 +++ assets +++
 +++ layout +++
 +++ header +++
@@ -79,6 +80,40 @@ a.reset:focus, a.reset:hover {
   color: inherit;
   text-decoration: none;
   outline: none;
+}
+
+/*========== reset ==========*/
+/*========== reset ==========*/
+.loader {
+  background: var(--main-color);
+  color: var(--one-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999999;
+}
+.loader__content {
+  position: fixed;
+  top: 50% !important;
+  left: 50%;
+  transform: translate(-50% , -50%);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  font-size:26px;
+  animation: load 1.2s infinite 0s ease-in-out;
+  animation-direction: alternate;
+  text-shadow: 0 0 1px white;
+}
+@keyframes load {
+  0%{
+      opacity: 0.08;
+      filter: blur(2px);
+      letter-spacing: 3px;
+  }
 }
 
 /*========== reset ==========*/
