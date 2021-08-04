@@ -1,7 +1,7 @@
-const Musical = {
+const Clubify = {
     //========== INIT ANIMATE ==========//
     animate: function(el) {
-        if (!(this instanceof Musical.animate)) {
+        if (!(this instanceof Clubify.animate)) {
           return new animate(el);
         }
         this.el = el;
@@ -81,16 +81,16 @@ const Musical = {
             let new_ele = [...eles].filter(e => e.getAttribute(`data-${data}`) == 1)[0];
             active_ele.classList.remove('active')
             new_ele.classList.add('active')
-            Musical.fade(active_ele,'out')
+            Clubify.fade(active_ele,'out')
             setTimeout(() => {
-                Musical.fade(new_ele,'in')
+                Clubify.fade(new_ele,'in')
             }, duration || 400);
         }else {
             active_ele.classList.remove('active')
             new_ele.classList.add('active')
-            Musical.fade(active_ele,'out',duration || 400)
+            Clubify.fade(active_ele,'out',duration || 400)
             setTimeout(() => {
-                Musical.fade(new_ele,'in',duration || 400)
+                Clubify.fade(new_ele,'in',duration || 400)
             }, duration || 400);
         }
     },
@@ -103,16 +103,16 @@ const Musical = {
             let new_ele = [...eles].filter(e => e.getAttribute(`data-${data}`) == count)[0];
             active_ele.classList.remove('active')
             new_ele.classList.add('active')
-            Musical.fade(active_ele,'out')
+            Clubify.fade(active_ele,'out')
             setTimeout(() => {
-                Musical.fade(new_ele,'in')
+                Clubify.fade(new_ele,'in')
             }, duration || 400);
         }else {
             active_ele.classList.remove('active')
             new_ele.classList.add('active')
-            Musical.fade(active_ele,'out',duration || 400)
+            Clubify.fade(active_ele,'out',duration || 400)
             setTimeout(() => {
-                Musical.fade(new_ele,'in',duration || 400)
+                Clubify.fade(new_ele,'in',duration || 400)
             }, duration || 400);
         }
     },
@@ -158,24 +158,23 @@ window.onload = _ => {
     let search_ele = document.querySelector(".header__search")
     let search_target = document.querySelector(".content__search")
     search_ele.onclick = function() {
-        Musical.toolsHeader(search_ele , search_target , "fa-search")
+        Clubify.toolsHeader(search_ele , search_target , "fa-search")
     }
 
     //========== TOGGLE MENU ==========//
     let menu_ele = document.querySelector(".header__menu")
     let menu_target = document.querySelector(".content__menu")
     menu_ele.onclick = function() {
-        Musical.toolsHeader(menu_ele , menu_target , "fa-bars")
+        Clubify.toolsHeader(menu_ele , menu_target , "fa-bars")
     }
 
     //========== HEADER MENU HUMBURGER==========//
     const li = document.querySelectorAll('.content__menu > ul > li')
     const li_drop = document.querySelectorAll('.content__menu .drop')
     for (const ele of [...li_drop]) {
-        ele.onclick = function (e) {
-            // e.preventDefault();
+        ele.onclick = function () {
             if(ele.querySelector('ul.drop__down').classList.contains('is-hidden')){
-                Musical.fade(ele.querySelector('ul.drop__down'),'in', 400 ,'flex');
+                Clubify.fade(ele.querySelector('ul.drop__down'),'in', 400 ,'flex');
                 ele.querySelector('ul.drop__down').classList.remove('is-hidden');
                 ele.querySelector('.icon').classList.add('open')
                 let li_not_active = [...li].filter(e => e !== this)
@@ -185,7 +184,7 @@ window.onload = _ => {
                     return false
                 })
             }else {
-                Musical.fade(ele.querySelector('ul.drop__down'),'out');
+                Clubify.fade(ele.querySelector('ul.drop__down'),'out');
                 ele.querySelector('.icon').classList.remove('open')
                 setTimeout(() => {
                     ele.querySelector('ul.drop__down').classList.add('is-hidden');
@@ -207,7 +206,7 @@ window.onload = _ => {
         let scroll = document.documentElement.getBoundingClientRect().y
         let height = document.scrollingElement.scrollHeight - window.innerHeight
         ele.textContent = `${scroll ? Math.round(Math.abs(scroll * 100) / height) : 0}%`
-        Musical.setProgress(Math.round(Math.abs(scroll * 100 ) / height) , circle);
+        Clubify.setProgress(Math.round(Math.abs(scroll * 100 ) / height) , circle);
     }
     document.onscroll = asideTop;
     asideTop();
@@ -221,6 +220,10 @@ window.onload = _ => {
             behavior: 'smooth'
         });
     }
+
+    //========== CHANGE COLOR THEME ==========//
+    let sp_theme = document.querySelectorAll('.aside__theme span')
+    Clubify.changeTheme(sp_theme)
 
     //========== GALLERY GRID ==========//
     if(document.querySelector(".sec__gallery .gallery__wrapper.waterfall")) {
@@ -271,10 +274,10 @@ window.onload = _ => {
             old.querySelector('.accordion__answer').style.display = "none"
             old.classList.remove('active')
             if(this.classList.contains('active')) {
-                Musical.fade(this.querySelector('.accordion__answer'),'out');
+                Clubify.fade(this.querySelector('.accordion__answer'),'out');
                 this.classList.remove('active')
             }else {
-                Musical.fade(this.querySelector('.accordion__answer'),'in' , 400 , 'block');
+                Clubify.fade(this.querySelector('.accordion__answer'),'in' , 400 , 'block');
                 this.classList.add('active')
             }
         })
@@ -287,10 +290,10 @@ window.onload = _ => {
         // set duration audios
         let audio = e.querySelector('audio')
         if (audio.duration) {
-            Musical.setDurationAudio(e.closest("li").querySelector('.duration') , audio.duration)
+            Clubify.setDurationAudio(e.closest("li").querySelector('.duration') , audio.duration)
         }else {
             audio.oncanplay = () => {
-                Musical.setDurationAudio(e.closest("li").querySelector('.duration') , audio.duration)
+                Clubify.setDurationAudio(e.closest("li").querySelector('.duration') , audio.duration)
             }
         }
         // audios on click
@@ -311,7 +314,7 @@ window.onload = _ => {
                 })
                 e.querySelector("audio").addEventListener("timeupdate",() => {
                     let current = e.querySelector("audio").currentTime;
-                    Musical.setDurationAudio(music_control.querySelector(".current__all") , current)
+                    Clubify.setDurationAudio(music_control.querySelector(".current__all") , current)
                 })
             }
             // callBackPlay
@@ -329,25 +332,25 @@ window.onload = _ => {
                 icon.classList.remove("fa-play")
                 icon.classList.add("fa-pause")
                 music_control.querySelector(".name").textContent = e.querySelector(".name").textContent
-                Musical.setDurationAudio(music_control.querySelector(".duration__all") , e.querySelector('audio').duration)
+                Clubify.setDurationAudio(music_control.querySelector(".duration__all") , e.querySelector('audio').duration)
                 audio.addEventListener("pause",() => {
                     callBackPause()
                 })
                 e.querySelector("audio").addEventListener("timeupdate",() => {
                     let current = e.querySelector("audio").currentTime;
-                    Musical.setDurationAudio(music_control.querySelector(".current__all") , current)
+                    Clubify.setDurationAudio(music_control.querySelector(".current__all") , current)
                 })
             }
             let audio = e.querySelector('audio')
             let parent_audio = e.closest("li")
             if(parent_audio.classList.contains('active')){
                 if(!audio.paused) {
-                    Musical.pauseAudio(audio,callBackPause)
+                    Clubify.pauseAudio(audio,callBackPause)
                 }else {
-                    Musical.continueAudio(audio,callBackContinue)
+                    Clubify.continueAudio(audio,callBackContinue)
                 }
             }else {
-                Musical.playAudio(audio , callBackPlay)
+                Clubify.playAudio(audio , callBackPlay)
             }
         }
     })
@@ -358,14 +361,14 @@ window.onload = _ => {
     let testi_img = document.querySelectorAll('.sec__about .testimonials__wrapper .items__img img')
     let testi_content = document.querySelectorAll('.sec__about .testimonials__wrapper .items__content')
     testi_control_next?.addEventListener('click',function () {
-        Musical.increaseSliceCount(testi_img,"testi",3,400)
-        Musical.increaseSliceCount(testi_content,"testi",3,400)
+        Clubify.increaseSliceCount(testi_img,"testi",3,400)
+        Clubify.increaseSliceCount(testi_content,"testi",3,400)
         let data = ([...testi_img].filter(e => e.classList.contains('active'))[0]).getAttribute("data-testi")
         document.querySelector(".sec__about .testimonials__wrapper .testimonials__numbers").textContent = data
     })
     testi_control_prev?.addEventListener('click',function () {
-        Musical.decreaseSliceCount(testi_img,"testi",3,400)
-        Musical.decreaseSliceCount(testi_content,"testi",3,400)
+        Clubify.decreaseSliceCount(testi_img,"testi",3,400)
+        Clubify.decreaseSliceCount(testi_content,"testi",3,400)
         let data = ([...testi_img].filter(e => e.classList.contains('active'))[0]).getAttribute("data-testi")
         document.querySelector(".sec__about .testimonials__wrapper .testimonials__numbers").textContent = data
     }) 
@@ -398,7 +401,7 @@ window.onload = _ => {
     pagination_after.appendChild(pagination_after_icon)
     document.querySelector(".slider .swiper-pagination")?.appendChild(pagination_after)
     document.querySelector(".slider .swiper-pagination")?.appendChild(pagination_current)
-    Musical.custimizeBgPaginationSwiper(0)
+    Clubify.custimizeBgPaginationSwiper(0)
     pagination_after.addEventListener("click",() => {
         let swiper_pagination = document.querySelector(".slider .swiper-pagination")
         if(swiper_pagination.classList.contains("active")) swiper_pagination.classList.remove("active")
@@ -436,8 +439,4 @@ window.onload = _ => {
             }
         }
     })
-
-    //========== CHANGE COLOR THEME ==========//
-    let sp_theme = document.querySelectorAll('.aside__theme span')
-    Musical.changeTheme(sp_theme)
 }
